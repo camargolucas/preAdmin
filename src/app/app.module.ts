@@ -1,20 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './component/header/header.component';
-import { LeftSidebarComponent } from './component/left-sidebar/left-sidebar.component';
-import { HomeComponent } from './home/home.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PageHomeComponent } from './pages/page-home/page-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    LeftSidebarComponent,
-    HomeComponent
+    PageHomeComponent,
   ],
   imports: [
     BrowserModule,

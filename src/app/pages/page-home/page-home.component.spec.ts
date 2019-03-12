@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeftSidebarComponent } from './left-sidebar.component';
+import { PageHomeComponent } from './page-home.component';
 
-describe('LeftSidebarComponent', () => {
-  let component: LeftSidebarComponent;
-  let fixture: ComponentFixture<LeftSidebarComponent>;
+describe('PageHomeComponent', () => {
+  let component: PageHomeComponent;
+  let fixture: ComponentFixture<PageHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LeftSidebarComponent ]
+      declarations: [ PageHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LeftSidebarComponent);
+    fixture = TestBed.createComponent(PageHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
