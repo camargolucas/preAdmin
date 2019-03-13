@@ -1,6 +1,13 @@
 export class Main{
 
+    checkIfTokenLoginExists(){
 
-    
+
+
+
+    }
+
+
+
 
 }

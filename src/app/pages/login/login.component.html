@@ -3,12 +3,14 @@
         <div>
             <img src="http://thothcompany.com.br/teste/img/logo-thoth-01.png" width="300px">
         </div>
+        <form (submit)="loginUser()">
             <div class="form-group">
-                <input type="email" class="form-control" placeholder="E-mail" required="">
+                <input [(ngModel)]="email" name="userEmail" type="email" class="form-control" placeholder="E-mail" required="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" placeholder="Senha" required="">
+                <input [(ngModel)]="senha" name="userSenha" type="password" class="form-control" placeholder="Senha" required="">
             </div>
             <button routerLink="/home" type="submit" class="btn btn-primary block full-width m-b">Login</button>
+        </form>
     </div>
 </div>
