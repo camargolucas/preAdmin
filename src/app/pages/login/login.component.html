@@ -3,14 +3,35 @@
         <div>
             <img src="http://thothcompany.com.br/teste/img/logo-thoth-01.png" width="300px">
         </div>
-        <form (submit)="loginUser()">
+        <form >
             <div class="form-group">
-                <input [(ngModel)]="email" name="userEmail" type="email" class="form-control" placeholder="E-mail" required="">
+                <input [formControl]="userEmail" name="userEmail" type="email" class="form-control" placeholder="E-mail" required>
             </div>
+            <div *ngIf="(userEmail.dirty || userEmail.touched) && userEmail.invalid && userEmail.errors.required" class="alert alert-danger" role="alert">
+                    Email necessário para fazer login.
+            </div>
+
             <div class="form-group">
-                <input [(ngModel)]="senha" name="userSenha" type="password" class="form-control" placeholder="Senha" required="">
+                <input [formControl]="userSenha" name="userSenha" type="password" class="form-control" placeholder="Senha" required="">
             </div>
-            <button routerLink="/home" type="submit" class="btn btn-primary block full-width m-b">Login</button>
+            <div *ngIf="(userSenha.dirty || userSenha.touched) && userSenha.invalid && userSenha.errors.required" class="alert alert-danger" role="alert">
+                    Senha necessária para fazer login.
+            </div>
+            <button (click)="loginUser()" type="submit" class="btn btn-primary block full-width m-b">Login</button>
         </form>
     </div>
+
+    <div *ngIf="loginSendData"><img src="../../../assets/Rolling-1s-200px.svg" width="60px"></div>
+    <div *ngIf="emptyPassword" class="alert alert-danger" role="alert">
+            Você precisa informar sua senha para fazer login!
+    </div>
+    <div *ngIf="emptyEmail" class="alert alert-danger" role="alert">
+            Você precisa informar seu e-mail para faezer login!
+    </div>
+    <div *ngIf="errologin" class="alert alert-danger" role="alert">
+        Erro ao fazer login, verifique seu e-mail e senha!
+    </div>
+    <div *ngIf="!navigatorStorageCompatibility" class="alert alert-danger" role="alert">
+            Erro ao fazer login, verifique a compatibilidade do seu navegador!
+        </div>
 </div>

@@ -16,6 +16,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PageNotFoundComponentComponent } from './pages/page-not-found-component/page-not-found-component.component';
 import { LoginService } from './services/login.service';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

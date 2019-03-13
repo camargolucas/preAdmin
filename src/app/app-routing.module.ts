@@ -12,13 +12,16 @@ import { PageNotFoundComponentComponent } from './pages/page-not-found-component
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component:  PageHomeComponent, children:[
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component:  DashboardComponent},
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
     { path: 'users', component:  UsersComponent},
-    { path: 'admin', component:  AdminComponent}
+    { path: 'admin', component:  AdminComponent},
+    { path: 'login', component:  LoginComponent}
   ]},
-  { path: 'login', component:  LoginComponent}
+  { path: 'login', component:  LoginComponent},
+  { path: '**', component: PageNotFoundComponentComponent }
 ];
 
 @NgModule({

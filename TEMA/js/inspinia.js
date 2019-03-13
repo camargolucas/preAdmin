@@ -123,6 +123,11 @@ $(document).ready(function () {
         SmoothlyMenu();
 
     });
+	$("body").delegate(".navbar-minimalize", "click", function() {
+			event.preventDefault();
+			$("body").toggleClass("mini-navbar");
+			SmoothlyMenu();
+	});
 
     // Tooltips demo
     $('.tooltip-demo').tooltip({
