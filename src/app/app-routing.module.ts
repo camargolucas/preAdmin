@@ -17,8 +17,7 @@ const routes: Routes = [
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
     { path: 'users', component:  UsersComponent},
-    { path: 'admin', component:  AdminComponent},
-    { path: 'login', component:  LoginComponent}
+    { path: 'admin', component:  AdminComponent}
   ]},
   { path: 'login', component:  LoginComponent},
   { path: '**', component: PageNotFoundComponentComponent }
