@@ -9,11 +9,20 @@ import { Component, OnInit } from "@angular/core";
 export class UsersComponent implements OnInit {
   arrUser;
   arr = [];
+  searchName;
   constructor(public service: UserService) {}
 
-  ngOnInit() {
-    this.service.getUsers().then(result => {
+  async ngOnInit() {
+    await this.service.getUsers().then(result => {
       this.arrUser = result;
+    });
+  }
+
+  filter(keyword: string) {
+    this.arrUser = this.arrUser.filter(data => {
+      return data.apelidoUsuario
+        .toLowerCase()
+        .startsWith(keyword.toLowerCase());
     });
   }
 }

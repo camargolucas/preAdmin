@@ -1,3 +1,5 @@
+import { ModalUserComponent } from "./modal/modal-user/modal-user.component";
+import { UserFilterPipe } from "./pages/users/user-filter.pipe";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
@@ -18,8 +20,8 @@ import { LoginService } from "./services/login.service";
 import { FormsModule } from "@angular/forms";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ReactiveFormsModule } from "@angular/forms";
-import { StoreComponent } from './pages/store/store.component';
-import { GerentesComponent } from './pages/gerentes/gerentes.component';
+import { StoreComponent } from "./pages/store/store.component";
+import { GerentesComponent } from "./pages/gerentes/gerentes.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,9 @@ import { GerentesComponent } from './pages/gerentes/gerentes.component';
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponentComponent,
+
+    UserFilterPipe,
+    ModalUserComponent,
     StoreComponent,
     GerentesComponent
   ],

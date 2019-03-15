@@ -28,6 +28,7 @@
     "font-awesome": "^4.7.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "uikit": "^3.0.4-dev.1715b073d",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
