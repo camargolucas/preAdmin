@@ -1,13 +1,8 @@
+
+import { Injectable } from "@angular/core";
+@Injectable({
+    providedIn: "root"
+  })
 export class Main{
-
-    checkIfTokenLoginExists(){
-
-
-
-
-    }
-
-
-
-
+    userAdmin:number = 3;
 }

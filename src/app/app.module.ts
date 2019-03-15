@@ -19,6 +19,9 @@ import { PageNotFoundComponentComponent } from "./pages/page-not-found-component
 import { LoginService } from "./services/login.service";
 import { FormsModule } from "@angular/forms";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+import { ReactiveFormsModule } from "@angular/forms";
+import { StoreComponent } from "./pages/store/store.component";
+import { GerentesComponent } from "./pages/gerentes/gerentes.component";
 
 @NgModule({
   declarations: [
@@ -32,8 +35,11 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponentComponent,
+
     UserFilterPipe,
-    ModalUserComponent
+    ModalUserComponent,
+    StoreComponent,
+    GerentesComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     HttpClientModule,
     FormsModule,
     ScrollingModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
     })

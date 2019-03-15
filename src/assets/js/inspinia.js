@@ -117,13 +117,12 @@ $(document).ready(function () {
     //});
 
     // Minimalize menu
-    $('.navbar-minimalize').on('click', function (event) {
+
+	$("body").delegate(".navbar-minimalize", "click", function() {
         event.preventDefault();
         $("body").toggleClass("mini-navbar");
         SmoothlyMenu();
-
     });
-
     // Tooltips demo
     $('.tooltip-demo').tooltip({
         selector: "[data-toggle=tooltip]",

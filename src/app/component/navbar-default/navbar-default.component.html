@@ -5,27 +5,19 @@
                 <div class="dropdown profile-element">
                     <img alt="image" class="rounded-circle" src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" width="45px"/>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="block m-t-xs font-bold">David Williams</span>
-                        <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
+                        <span class="block m-t-xs font-bold">{{userNome}}</span>
+                        <span *ngIf="!userTiAdmin" class="text-muted text-xs block">Gerente </span>
+                        <span *ngIf="userTiAdmin" class="text-muted text-xs block">Ti Admin </span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                        <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
-                        <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
-                        <li class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                    </ul>
                 </div>
-                <div class="logo-element">
-                    TC
-                </div>
+                <div class="logo-element">TC</div>
             </li>
-            <li class="active"><a routerLink="/home"><i class="fa fa-home"></i> <span class="nav-label">Início</span></a></li>
-            <li><a routerLink="/home/purchase"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Compra</span></a></li>
-            <li><a routerLink="/home/stockRequests"><i class="fa fa-files-o"></i> <span class="nav-label">Estoque e Pedidos</span></a></li>
-            <li><a routerLink="/home/users"><i class="fa fa-user"></i> <span class="nav-label">Usuários</span></a></li>
-            <li><a routerLink="/home/admin"><i class="fa fa-coffee"></i> <span class="nav-label">Admin</span></a></li>
-
+            <li id="itemMenu1" (click)="addClass(itemMenu=1)" [ngClass]="{'active': itemMenu === 1 }"><a routerLink="/home"><i class="fa fa-home"></i> <span class="nav-label">Início</span></a></li>
+            <li id="itemMenu2" (click)="addClass(itemMenu=2)" [ngClass]="{'active': itemMenu === 2 }"><a routerLink="/home/store"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Lojas</span></a></li>
+            <li id="itemMenu3" (click)="addClass(itemMenu=3)" [ngClass]="{'active': itemMenu === 3 }"><a routerLink="/home/purchase"><i class="fa fa-shopping-basket "></i> <span class="nav-label">Compra</span></a></li>
+            <li id="itemMenu4" (click)="addClass(itemMenu=4)" [ngClass]="{'active': itemMenu === 4 }"><a routerLink="/home/stockRequests"><i class="fa fa-archive"></i> <span class="nav-label">Estoque e Pedidos</span></a></li>
+            <li id="itemMenu5" (click)="addClass(itemMenu=5)" [ngClass]="{'active': itemMenu ===5 }"><a routerLink="/home/users"><i class="fa fa-user"></i> <span class="nav-label">Usuários</span></a></li>
+            <li *ngIf="userTiAdmin" id="itemMenu6" (click)="addClass(itemMenu=6)" [ngClass]="{'active': itemMenu === 6 }"><a routerLink="/home/admin"><i class="fa fa-coffee"></i> <span class="nav-label">Admin</span></a></li>
         </ul>
     </div>
 </nav>
