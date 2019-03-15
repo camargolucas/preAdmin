@@ -22,4 +22,18 @@ export class UserService extends ApiDataService {
       );
     });
   }
+
+
+  getLoggedUserLevel(){
+
+
+
+
+
+  }
+
+
+
+  
+
 }

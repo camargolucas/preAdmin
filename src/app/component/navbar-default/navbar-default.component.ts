@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarDefaultComponent implements OnInit {
 
-  usuario:Usuario;//Objeto usuário, 
+  usuario:Usuario;//Objeto usuário
   userNome:string;
   userCargo:number;
   userGerente:boolean = true;

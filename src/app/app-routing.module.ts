@@ -9,6 +9,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PageNotFoundComponentComponent } from './pages/page-not-found-component/page-not-found-component.component';
+import { GerentesComponent } from './pages/gerentes/gerentes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
     { path: 'users', component:  UsersComponent},
-    { path: 'admin', component:  AdminComponent}
+    { path: 'admin', component:  AdminComponent},
+    { path: 'gerentes', component:  GerentesComponent}
   ]},
   { path: 'login', component:  LoginComponent},
   { path: '**', component: PageNotFoundComponentComponent }

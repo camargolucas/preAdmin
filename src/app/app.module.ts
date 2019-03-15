@@ -19,6 +19,7 @@ import { FormsModule } from "@angular/forms";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ReactiveFormsModule } from "@angular/forms";
 import { StoreComponent } from './pages/store/store.component';
+import { GerentesComponent } from './pages/gerentes/gerentes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { StoreComponent } from './pages/store/store.component';
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponentComponent,
-    StoreComponent
+    StoreComponent,
+    GerentesComponent
   ],
   imports: [
     BrowserModule,

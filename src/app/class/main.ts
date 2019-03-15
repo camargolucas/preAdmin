@@ -4,5 +4,5 @@ import { Injectable } from "@angular/core";
     providedIn: "root"
   })
 export class Main{
-    userAdmin:number = 1;
+    userAdmin:number = 3;
 }
