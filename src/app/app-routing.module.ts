@@ -1,3 +1,4 @@
+import { StoreComponent } from './pages/store/store.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { StockRequestsComponent } from './pages/stock-requests/stock-requests.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'home', component:  PageHomeComponent, children:[
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component:  DashboardComponent},
+    { path: 'store', component:  StoreComponent},
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
     { path: 'users', component:  UsersComponent},

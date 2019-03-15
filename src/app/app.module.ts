@@ -18,6 +18,7 @@ import { LoginService } from "./services/login.service";
 import { FormsModule } from "@angular/forms";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ReactiveFormsModule } from "@angular/forms";
+import { StoreComponent } from './pages/store/store.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     AdminComponent,
     LoginComponent,
     DashboardComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponentComponent,
+    StoreComponent
   ],
   imports: [
     BrowserModule,

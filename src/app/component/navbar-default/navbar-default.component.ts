@@ -16,8 +16,8 @@ export class NavbarDefaultComponent implements OnInit {
   userGerente:boolean = true;
   userTiAdmin:boolean = false;
   //#######################################################
-  //Id utilizado para manipular os itens do menu
-  id = 1;
+  //itemMenu utilizado para manipular os itens do menu
+  itemMenu = 1;
   //#######################################################
   constructor(private storage:StorageService,private main:Main) {
     this.main = new Main();//Obtém a instância da classe Main
@@ -42,7 +42,7 @@ export class NavbarDefaultComponent implements OnInit {
   //#######################################################
   //Método que altera o valor do id do item clicado no menu
   addClass(id: any){
-    this.id = id;
+    this.itemMenu = id;
   }
   //#######################################################
   //#######################################################
