@@ -1,3 +1,5 @@
+import { ModalUserComponent } from "./modal/modal-user/modal-user.component";
+import { UserFilterPipe } from "./pages/users/user-filter.pipe";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
@@ -29,7 +31,9 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     AdminComponent,
     LoginComponent,
     DashboardComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponentComponent,
+    UserFilterPipe,
+    ModalUserComponent
   ],
   imports: [
     BrowserModule,
