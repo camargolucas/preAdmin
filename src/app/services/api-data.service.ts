@@ -12,8 +12,8 @@ export class ApiDataService {
 
   constructor() {
     // ## URL da API
-    this.API_URL = "http://apprequestapi.kinghost.net:21093/";
-    //this.API_URL = "http://localhost:21093/"; // TESTE API LOCAL
+    //this.API_URL = "http://apprequestapi.kinghost.net:21093/";
+    this.API_URL = "http://localhost:21093/"; // TESTE API LOCAL
 
      // ## Configuração do Header da API
      // ## Padrão de transição de dados
