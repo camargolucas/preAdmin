@@ -5,7 +5,7 @@
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
-    <div routerLink="/home/store" class="col-lg-3 dashboard-card">
+    <div routerLink="/home/economic-group" class="col-lg-3 dashboard-card">
         <div class="widget style1 red-bg">
             <div class="row">
                 <div class="col-4">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-8 text-right">
                     <span>Grupo econômico</span>
-                    <h2 class="font-bold">118</h2>
+                    <h2 class="font-bold">{{totalGrupoEconomico}}</h2>
                 </div>
             </div>
         </div>
@@ -31,8 +31,6 @@
           </div>
       </div>
   </div>
-
-
   <div routerLink="/home/stockRequests" class="col-lg-3 dashboard-card">
       <div class="widget style1 yellow-bg">
           <div class="row">
@@ -46,7 +44,6 @@
           </div>
       </div>
   </div>
-
   <div routerLink="/home/users" class="col-lg-3 dashboard-card">
       <div class="widget style1 navy-bg">
           <div class="row">
@@ -55,11 +52,10 @@
               </div>
               <div class="col-8 text-right">
                   <span>Usuários</span>
-                  <h2 class="font-bold">80</h2>
+                  <h2 class="font-bold">{{totalUser}}</h2>
               </div>
           </div>
       </div>
   </div>
-
   </div>
 </div>

@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { StoreComponent } from "./pages/store/store.component";
 import { GerentesComponent } from "./pages/gerentes/gerentes.component";
 import { EconomicGroupComponent } from './pages/economic-group/economic-group.component';
+import { ClientComponent } from './pages/client/client.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { EconomicGroupComponent } from './pages/economic-group/economic-group.co
     ModalUserComponent,
     StoreComponent,
     GerentesComponent,
-    EconomicGroupComponent
+    EconomicGroupComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

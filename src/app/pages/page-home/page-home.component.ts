@@ -39,13 +39,11 @@ export class PageHomeComponent implements OnInit {
         this.router.navigateByUrl('/login');
     }
   }
-
   signOutUser(){
     if(this.loginService.signOutUser()){
       this.router.navigateByUrl('/login');
     }
   }
-
   changeClass(event:any){
     this.renderer.setElementClass(event.target,"active",true);
   }

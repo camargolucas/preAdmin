@@ -10,12 +10,16 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PageNotFoundComponentComponent } from './pages/page-not-found-component/page-not-found-component.component';
 import { GerentesComponent } from './pages/gerentes/gerentes.component';
+import { EconomicGroupComponent } from './pages/economic-group/economic-group.component';
+import { ClientComponent } from './pages/client/client.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component:  PageHomeComponent, children:[
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component:  DashboardComponent},
+    { path: 'economic-group', component:  EconomicGroupComponent},
+    { path: 'client', component:  ClientComponent},
     { path: 'store', component:  StoreComponent},
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
