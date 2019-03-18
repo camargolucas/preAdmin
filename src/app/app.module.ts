@@ -22,6 +22,7 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ReactiveFormsModule } from "@angular/forms";
 import { StoreComponent } from "./pages/store/store.component";
 import { GerentesComponent } from "./pages/gerentes/gerentes.component";
+import { EconomicGroupComponent } from './pages/economic-group/economic-group.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { GerentesComponent } from "./pages/gerentes/gerentes.component";
     UserFilterPipe,
     ModalUserComponent,
     StoreComponent,
-    GerentesComponent
+    GerentesComponent,
+    EconomicGroupComponent
   ],
   imports: [
     BrowserModule,
