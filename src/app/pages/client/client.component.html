@@ -13,9 +13,20 @@
     <div class="col-lg-2"></div>
 </div>
 
-
-
 <div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="ibox-content m-b-sm border-bottom">
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label class="col-form-label" for="product_name">Buscar Cliente</label>
+              <input [(ngModel)]="searchName" type="text" id="product_name" name="product_name" value="" placeholder="Buscar cliente"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+      </div>
+
     <div class="row">
         <div class="col-lg-12">
         <div class="ibox ">
@@ -32,16 +43,36 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <ng-container *ngFor="let n of arrClientList ">
+                        <ng-container *ngFor="let item of pagedItems">
                             <tr class="gradeX">
-                                <td>{{n.CODIGO}}</td>
-                                <td>{{n.NOME}}</td>
-                                <td>{{n.FANTASIA}}</td>
-                                <td>{{n.TIPO_CLI_FORN}}</td>
+                                <td>{{item.ID}}</td>
+                                <td>{{item.NOME}}</td>
+                                <td>{{item.FANTASIA}}</td>
+                                <td>{{item.TIPO_CLI_FORN}}</td>
                             </tr>
                         </ng-container>
                     </tbody>
                     </table>
+
+                    <!-- pager -->
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(1)">Primeira</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a (click)="setPage(pager.currentPage - 1)">Anterior</a>
+                        </li>
+                        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a (click)="setPage(page)">{{page}}</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.currentPage + 1)">Próxima</a>
+                        </li>
+                        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a (click)="setPage(pager.totalPages)">Última</a>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </div>

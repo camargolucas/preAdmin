@@ -1,6 +1,6 @@
 import { Usuario } from "../model/user.model";
 import { Injectable } from "@angular/core";
-import { EconomicGroup } from '../model/economic-group.model';
+import { EconomicGroup } from "../model/economic-group.model";
 
 @Injectable({
   providedIn: "root"
@@ -61,13 +61,13 @@ export class StorageService {
       console.log(e);
     }
   }
- //###########################################
- //###########################################
+  //###########################################
+  //###########################################
 
- //###########################################
- //###########################################
- //Controle de cache dos dados do grupo econômico
-  insertCacheEconomicGroup(data:any){
+  //###########################################
+  //###########################################
+  //Controle de cache dos dados do grupo econômico
+  insertCacheEconomicGroup(data: any) {
     try {
       localStorage.setItem("dataEconomicGroup", JSON.stringify(data));
       return true;
@@ -76,56 +76,48 @@ export class StorageService {
       return false;
     }
   }
-  getAllDataEconomicGroup(){
-    return  JSON.parse(localStorage.getItem("dataEconomicGroup"));
+  getAllDataEconomicGroup() {
+    return JSON.parse(localStorage.getItem("dataEconomicGroup"));
   }
-  getTotalEconomicGroup(){
+  getTotalEconomicGroup() {
     let arr = this.getAllDataEconomicGroup();
     return arr.length;
   }
- //###########################################
- //###########################################
- //Controla o Cache da lista dos usuários
- insertCacheUsersList(data:any){
-  try {
-    localStorage.setItem("dataUsersList", JSON.stringify(data));
-    return true;
-  } catch (e) {
-    console.log(e);
-    return false;
+  //###########################################
+  //###########################################
+  //Controla o Cache da lista dos usuários
+  insertCacheUsersList(data: any) {
+    try {
+      localStorage.setItem("dataUsersList", JSON.stringify(data));
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
   }
- }
- getAllDataUserList(){
-    return  JSON.parse(localStorage.getItem("dataUsersList"));
- }
- getTotalUsers(){
-  let arr = this.getAllDataUserList();
-  return arr.length;
- }
- //###########################################
- //###########################################
- insertCacheClientList(data:any){
-  try {
-    localStorage.setItem("dataClientList", JSON.stringify(data));
-    return true;
-  } catch (e) {
-    console.log(e);
-    return false;
+  getAllDataUserList() {
+    return JSON.parse(localStorage.getItem("dataUsersList"));
   }
- }
- getAllClientList(){
-  return  JSON.parse(localStorage.getItem("dataClientList"));
- }
-getTotalClient(){
-  let arr = this.getAllClientList();
-  return arr.length;
-}
-
-   
-
-
-
-
-
-
+  getTotalUsers() {
+    let arr = this.getAllDataUserList();
+    return arr.length;
+  }
+  //###########################################
+  //###########################################
+  insertCacheClientList(data: any) {
+    try {
+      localStorage.setItem("dataClientList", JSON.stringify(data));
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  }
+  getAllClientList() {
+    return JSON.parse(localStorage.getItem("dataClientList"));
+  }
+  getTotalClient() {
+    let arr = this.getAllClientList();
+    return arr.length;
+  }
 }
