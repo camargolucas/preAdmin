@@ -25,7 +25,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
   MatButtonModule,
   MatCheckboxModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatInputModule
 } from "@angular/material";
 import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
 import { ClientComponent } from "./pages/client/client.component";
@@ -42,7 +46,6 @@ import { ClientComponent } from "./pages/client/client.component";
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponentComponent,
-
     UserFilterPipe,
     StoreComponent,
     GerentesComponent,
@@ -62,7 +65,11 @@ import { ClientComponent } from "./pages/client/client.component";
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatInputModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

@@ -3,8 +3,9 @@ import { ClientService } from './../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from './../../services/storage.service';
 import { LoginService } from '../../services/login.service';
+import {MatTableModule} from '@angular/material/table';
 import {Router} from '@angular/router';
-
+import {PageEvent} from '@angular/material';
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -45,6 +46,28 @@ export class ClientComponent implements OnInit {
   // paged items
   pagedItems: any[];
 
+
+
+
+
+
+
+
+
+
+
+    // MatPaginator Inputs
+    length = 1000;
+    pageSize = 10;
+    pageSizeOptions: number[] = [5, 10, 10, 100];
+
+    // MatPaginator Output
+    pageEvent: PageEvent;
+
+    datasource = [];
+
+    activePageDataChunk = []
+    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   constructor(
     private loginService:LoginService,
     private router: Router,
@@ -52,6 +75,7 @@ export class ClientComponent implements OnInit {
     private storageService:StorageService,
     private paginationService:PagerService
     ) { 
+
     //#######################################################
     //Verificamos de o usuário esta logado, true para logado e false para não logado
     this.userLogged = loginService.checkIfUserIsLogged();
@@ -68,6 +92,7 @@ export class ClientComponent implements OnInit {
     //esta variável irá conter os dados parciais dependendo
     //da busca do usuário por resultados
     this.arrClientList = storageService.getAllClientList();
+    this.activePageDataChunk = this.arrClientList.slice(0,this.pageSize);
     //#######################################################
 
     //#######################################################
@@ -134,6 +159,7 @@ export class ClientComponent implements OnInit {
         .startsWith(this.searchName.toLowerCase());
     });
     this.totalItensBusca = this.arrClientList.length;
+    this.activePageDataChunk = this.arrClientList.slice(0,this.pageSize);
     this.setPage(1);
   }
 
@@ -151,4 +177,18 @@ export class ClientComponent implements OnInit {
 
 
 
+
+
+
+
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+
+  onPageChanged(e) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.arrClientList.slice(firstCut, secondCut);
+  }
 }

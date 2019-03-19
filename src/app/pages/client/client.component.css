@@ -1,0 +1,10 @@
+table {
+    width: 100%;
+  }
+  .boxPadrao{
+    background:#ffffff;
+    padding: 24px;
+}
+.example-full-width{
+  width:100%;
+}
