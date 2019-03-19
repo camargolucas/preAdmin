@@ -7,13 +7,13 @@
 </ul> -->
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-9">
-      <h2>Usuários</h2>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a routerLink="/home">Painel de controle</a>
-        </li>
-        <li class="breadcrumb-item">
-          <a routerLink="/home/users">Usuários</a>
+    <h2>Usuários</h2>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/home">Painel de controle</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/home/users">Usuários</a>
       </li>
     </ol>
   </div>
@@ -57,15 +57,15 @@
 
             <tbody>
 
-              <ng-container *ngFor="let n of arrUser | userFilter:searchName ">
+              <ng-container *ngFor="let user of arrUser | userFilter:searchName ">
 
 
                 <tr class="footable-even" style="">
                   <td class="footable-visible footable-first-column"><span class="footable-toggle"></span>
-                    {{n.nomeUsuario}}
+                    {{user.nomeUsuario}}
                   </td>
                   <td class="footable-visible" style="">
-                    {{ n.email }}
+                    {{ user.email }}
                   </td>
                   <!--  <td style="display: none;">
                   It is a long established fact that a reader will be distracted by the readable
@@ -74,22 +74,23 @@
                   'Content here, content here', making it look like readable English.
                 </td> -->
                   <td class="footable-visible" style="">
-                    {{n.apelidoUsuario}}
+                    {{user.apelidoUsuario}}
                   </td>
 
                   <td class="footable-visible" style="">
-                    <div *ngIf="n.ativo == 0; then thenBlock else elseBlock"></div>
+                    <div *ngIf="user.ativo; then thenBlock else elseBlock"></div>
                     <ng-template #thenBlock><span class="label label-primary">Ativo</span></ng-template>
                     <ng-template #elseBlock><span class="label label-primary">Inativo</span></ng-template>
 
                   </td>
                   <td class="text-right footable-visible footable-last-column">
                     <div class="btn-group">
-                      <button class="btn-white btn btn-xs">Disable</button>
-                      <button class="btn-white btn btn-xs">Edit</button>
+                      <!--     <button class="btn-white btn btn-xs">Disable</button> -->
+                      <button mat-button (click)="editUser(user)" class="btn-xs">Edit</button>
                     </div>
                   </td>
                 </tr>
+
               </ng-container>
 
 
@@ -117,3 +118,38 @@
 
 
 </div>
+<div [ngClass]="{show: shouldShow, hide: !shouldShow}" class="modal inmodal" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content animated bounceInRight">
+      <div class="modal-header">
+        <button (click)="shouldShow = !shouldShow" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+            class="sr-only">Close</span></button>
+        <i class="fa fa-laptop modal-icon"></i>
+      </div>
+      <div class="modal-body">
+        <div class="form-group"><label>Email</label>
+          <input type="email" [(ngModel)]="user.email" placeholder="Enter your email" class="form-control">
+        </div>
+
+        <div class="form-group"><label>Nome</label>
+          <input type="email" [(ngModel)]="user.nomeUsuario" placeholder="Enter your email" class="form-control">
+        </div>
+
+        <div class="form-group"><label>Apelido</label>
+          <input type="email" [(ngModel)]="user.apelidoUsuario" placeholder="Enter your email" class="form-control">
+        </div>
+
+        <div class="form-group"><label>Loja</label>
+          <input type="email" [(ngModel)]="user.loja" placeholder="Enter your email" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button mat-flat-button (click)="shouldShow = !shouldShow" type="button" data-dismiss="modal">Cancelar</button>
+        <button mat-flat-button (click)="update(user)" type="button" class="btn btn-primary">Salvar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div [ngClass]="{show: shouldShow, hide: !shouldShow}" class="modal-backdrop hide"></div>

@@ -1,4 +1,3 @@
-import { ModalUserComponent } from "./modal/modal-user/modal-user.component";
 import { UserFilterPipe } from "./pages/users/user-filter.pipe";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
@@ -22,6 +21,12 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
 import { ReactiveFormsModule } from "@angular/forms";
 import { StoreComponent } from "./pages/store/store.component";
 import { GerentesComponent } from "./pages/gerentes/gerentes.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSnackBarModule
+} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -37,7 +42,6 @@ import { GerentesComponent } from "./pages/gerentes/gerentes.component";
     PageNotFoundComponentComponent,
 
     UserFilterPipe,
-    ModalUserComponent,
     StoreComponent,
     GerentesComponent
   ],
@@ -50,7 +54,11 @@ import { GerentesComponent } from "./pages/gerentes/gerentes.component";
     ReactiveFormsModule,
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production
-    })
+    }),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
