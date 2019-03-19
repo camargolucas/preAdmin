@@ -10,23 +10,17 @@
         </li>
     </ol>
     </div>
-    <div class="col-lg-2"></div>
+    
+    <div class="col-sm-12">
+        <div class="form-group">
+            <br>
+          <input [(ngModel)]="searchName" (ngModelChange)="filterData()"  type="text" id="product_name" name="product_name" value="" placeholder="Buscar cliente"
+            class="form-control">
+        </div>
+      </div>
 </div>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-
-    <div class="ibox-content m-b-sm border-bottom">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label class="col-form-label" for="product_name">Buscar Cliente</label>
-              <input [(ngModel)]="searchName" type="text" id="product_name" name="product_name" value="" placeholder="Buscar cliente"
-                class="form-control">
-            </div>
-          </div>
-        </div>
-      </div>
-
     <div class="row">
         <div class="col-lg-12">
         <div class="ibox ">
@@ -35,7 +29,7 @@
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover dataTables-example" >
                     <thead>
-                    <tr>
+                    <tr *ngIf="totalItensBusca > 0">
                         <th>Código</th>
                         <th>Nome</th>
                         <th>Nome Fantasia</th>
@@ -51,7 +45,12 @@
                                 <td>{{item.TIPO_CLI_FORN}}</td>
                             </tr>
                         </ng-container>
+
+                        <div *ngIf="totalItensBusca == 0" class="alert alert-success">
+                            Nenhum resultado encontrado!
+                        </div>
                     </tbody>
+                    
                     </table>
 
                     <!-- pager -->
