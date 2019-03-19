@@ -1,4 +1,5 @@
 import { Usuario } from "src/app/model/user.model";
+import { StorageService } from "../../services/storage.service";
 import { UserService } from "./../../services/user.service";
 import { Component, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
@@ -15,7 +16,11 @@ export class UsersComponent implements OnInit {
   public user: Usuario;
 
   public shouldShow = false;
-  constructor(public service: UserService, private snackBar: MatSnackBar) {
+  constructor(
+    public service: UserService,
+    private snackBar: MatSnackBar,
+    public storageService: StorageService
+  ) {
     this.user = new Usuario();
   }
 
@@ -26,8 +31,13 @@ export class UsersComponent implements OnInit {
   }
 
   async ngOnInit() {
+    //primeiro buscamos dados no cache local para pré exibir os dados
+    this.arrUser = this.storageService.getAllDataUserList();
+    //os dados são buscados no servidor e após receber a resposta os dados na tela
+    //e o cache são atualizados.
     await this.service.getUsers().then(result => {
       this.arrUser = result;
+      this.storageService.insertCacheUsersList(result);
     });
   }
 

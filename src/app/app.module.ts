@@ -27,6 +27,8 @@ import {
   MatCheckboxModule,
   MatSnackBarModule
 } from "@angular/material";
+import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
+import { ClientComponent } from "./pages/client/client.component";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {
 
     UserFilterPipe,
     StoreComponent,
-    GerentesComponent
+    GerentesComponent,
+    EconomicGroupComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,
