@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from './../../services/storage.service';
 import { LoginService } from '../../services/login.service';
 import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {Router} from '@angular/router';
 import {PageEvent} from '@angular/material';
 @Component({
@@ -41,33 +42,14 @@ export class ClientComponent implements OnInit {
   //Variavel que armazena o total de resultados encontrados
   totalItensBusca:number;
   //#######################################################
-  // pager object
-  pager: any = {};
-  // paged items
-  pagedItems: any[];
-
-
-
-
-
-
-
-
-
-
 
     // MatPaginator Inputs
-    length = 1000;
     pageSize = 10;
-    pageSizeOptions: number[] = [5, 10, 10, 100];
-
+    pageSizeOptions: number[] = [10];
     // MatPaginator Output
     pageEvent: PageEvent;
-
-    datasource = [];
-
     activePageDataChunk = []
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+    displayedColumns: string[] = ['COD', 'NOME', 'NOMEFANTASIA', 'TIPOCLIFORN'];
   constructor(
     private loginService:LoginService,
     private router: Router,
@@ -92,18 +74,16 @@ export class ClientComponent implements OnInit {
     //esta variável irá conter os dados parciais dependendo
     //da busca do usuário por resultados
     this.arrClientList = storageService.getAllClientList();
-    this.activePageDataChunk = this.arrClientList.slice(0,this.pageSize);
+
+    if(this.arrClientList != undefined){
+      this.activePageDataChunk = this.arrClientList.slice(0,this.pageSize);
+    }
     //#######################################################
 
     //#######################################################
     //Busca todos os dados da lista de clientes do cache, isso
     //serve como base para a busca subsequente pelo usuário
     this.arrClientListAll = storageService.getAllClientList();
-    //#######################################################
-
-    //#######################################################
-    //define a página atual para o serviço de paginação
-    this.setPage(1);
     //#######################################################
 
     //#######################################################
@@ -114,7 +94,6 @@ export class ClientComponent implements OnInit {
       this.totalItensBusca = this.arrClientList.length;
     }catch(e){
     }
-    
     //#######################################################
   }
 
@@ -129,18 +108,17 @@ export class ClientComponent implements OnInit {
   }
 
   public getAllClientData(){
-
     try{
       this.clientService.getClientList().subscribe(data => {
         //###########################################################
           this.arrClientListAll = data;
          
-          if(this.arrClientList == null){
+          if(this.arrClientList == undefined){
             this.arrClientList = data;
+            this.activePageDataChunk = this.arrClientList.slice(0,this.pageSize);
           }
         //###########################################################
           this.storageService.insertCacheClientList(data);
-          this.setPage(1);
         }, error => {
           this.error = error
           console.log("ERRO AO BUSCAR DADOS");
@@ -149,9 +127,7 @@ export class ClientComponent implements OnInit {
     }catch(e){
       console.log(e);
     }
-
   }
-
   filterData(){
     this.arrClientList = this.arrClientListAll.filter(data => {
       return data.NOME
@@ -160,32 +136,10 @@ export class ClientComponent implements OnInit {
     });
     this.totalItensBusca = this.arrClientList.length;
     this.activePageDataChunk = this.arrClientList.slice(0,this.pageSize);
-    this.setPage(1);
   }
-
-  setPage(page: number) {
-    try{
-    // get pager object from service
-    this.pager = this.paginationService.getPager(this.arrClientList.length, page);
-    // get current page of items
-    this.pagedItems = this.arrClientList.slice(this.pager.startIndex, this.pager.endIndex + 1);
-
-    }catch(e){
-      console.log(e);
-    }
-  }
-
-
-
-
-
-
-
-
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
-
   onPageChanged(e) {
     let firstCut = e.pageIndex * e.pageSize;
     let secondCut = firstCut + e.pageSize;

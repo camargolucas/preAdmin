@@ -1,5 +1,5 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-lg-10">
+<br>
+<div class="mat-elevation-z8 boxPadrao">
     <h2>Clientes</h2>
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -9,45 +9,39 @@
         <a routerLink="/home/client">Clientes</a>
       </li>
     </ol>
-  </div>
-</div>
-<br>
-<div class="mat-elevation-z8 boxPadrao">
-    <div class="form-group">
-<br />
-        <input [(ngModel)]="searchName" (ngModelChange)="filterData()" type="text"
-            id="product_name"
-            name="product_name"
-            value=""
-            placeholder="Buscar cliente"
-            class="form-control"
-        />
-    </div>
+    <br>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="searchName" (ngModelChange)="filterData()" matInput placeholder="Buscar Cliente">
+        </mat-form-field>
+    </form>
+
+
 </div>
 <table mat-table [dataSource]="activePageDataChunk" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container matColumnDef="position">
+  <ng-container matColumnDef="COD">
     <th mat-header-cell *matHeaderCellDef>COD</th>
     <td mat-cell *matCellDef="let element">{{ element.ID }}</td>
   </ng-container>
 
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
+  <ng-container matColumnDef="NOME">
     <th mat-header-cell *matHeaderCellDef>NOME</th>
     <td mat-cell *matCellDef="let element">{{ element.NOME }}</td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
+  <ng-container matColumnDef="NOMEFANTASIA">
     <th mat-header-cell *matHeaderCellDef>NOME FANTASIA</th>
     <td mat-cell *matCellDef="let element">{{ element.FANTASIA }}</td>
   </ng-container>
 
   <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
+  <ng-container matColumnDef="TIPOCLIFORN">
     <th mat-header-cell *matHeaderCellDef>TIPO</th>
     <td mat-cell *matCellDef="let element">{{ element.TIPO_CLI_FORN }}</td>
   </ng-container>
