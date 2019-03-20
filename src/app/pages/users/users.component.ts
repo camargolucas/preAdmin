@@ -3,6 +3,7 @@ import { StorageService } from "../../services/storage.service";
 import { UserService } from "./../../services/user.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
+import { FormControl, Validators } from "@angular/forms";
 import {
   MatDialog,
   MatDialogRef,
@@ -78,12 +79,22 @@ export class UsersComponent implements OnInit {
   styleUrls: ["./users.component.css"]
 })
 export class DialogOverviewExampleDialog {
+  email = new FormControl("", [Validators.required, Validators.email]);
+
   constructor(
     public snackBar: MatSnackBar,
     public service: UserService,
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+
+  getErrorMessage() {
+    return this.email.hasError("required")
+      ? "Preencha este campo"
+      : this.email.hasError("email")
+      ? "Email não é válido"
+      : "";
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
