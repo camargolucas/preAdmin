@@ -71,8 +71,9 @@ export class UsersComponent implements OnInit {
   templateUrl: "user-dialog.html",
   styleUrls: ["./users.component.css"]
 })
-export class DialogOverviewExampleDialog {
+export class DialogOverviewExampleDialog implements OnInit {
   email = new FormControl("", [Validators.required, Validators.email]);
+  form;
 
   constructor(
     public snackBar: MatSnackBar,
@@ -81,6 +82,8 @@ export class DialogOverviewExampleDialog {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public storageService: StorageService
   ) {}
+
+  ngOnInit(): void {}
 
   getErrorMessage() {
     return this.email.hasError("required")
