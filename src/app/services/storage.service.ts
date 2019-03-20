@@ -143,4 +143,17 @@ export class StorageService {
     let arr = this.getAllClientList();
     return arr.length;
   }
+
+  updateClient(user) {
+    return new Promise(resolve => {
+      let arrUser: Array<Usuario> = this.getAllDataUserList();
+
+      let item = arrUser.find(x => x.idUsuario == user.idUsuario);
+      let index = arrUser.indexOf(item);
+
+      arrUser[index] = user;
+
+      resolve(arrUser);
+    });
+  }
 }
