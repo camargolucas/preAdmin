@@ -4,6 +4,8 @@ import { UserService } from "./../../services/user.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
 import { FormControl, Validators } from "@angular/forms";
+import {PageEvent} from '@angular/material';
+
 import {
   MatDialog,
   MatDialogRef,
@@ -17,12 +19,29 @@ import {
   styleUrls: ["./users.component.css"]
 })
 export class UsersComponent implements OnInit {
+
+
   arrUser;
-  arr = [];
+  arrUserAll;
   searchName;
+
+  //#######################################################
+  //Variavel que armazena o total de resultados encontrados
+  totalItensBusca:number;
+  //#######################################################
+
+    // MatPaginator Inputs
+    pageSize = 10;
+    pageSizeOptions: number[] = [10];
+    // MatPaginator Output
+    pageEvent: PageEvent;
+    activePageDataChunk = []
+    displayedColumns: string[] = ['NOME', 'EMAIL', 'APELIDO', 'LOJA', 'ACTION'];
+ 
   public user: Usuario;
 
   public shouldShow = false;
+
   constructor(
     public dialog: MatDialog,
     public service: UserService,
@@ -30,23 +49,63 @@ export class UsersComponent implements OnInit {
     public storageService: StorageService
   ) {
     this.user = new Usuario();
+
+
   }
 
   async ngOnInit() {
     //primeiro buscamos dados no cache local para pré exibir os dados
     this.arrUser = this.storageService.getAllDataUserList();
+    this.arrUserAll = this.arrUser;
     //os dados são buscados no servidor e após receber a resposta os dados na tela
     //e o cache são atualizados.
+
+    if(this.arrUser != undefined && this.arrUser != null){
+      this.activePageDataChunk = this.arrUser.slice(0,this.pageSize);
+    }
+
+    try{
+      this.totalItensBusca = this.arrUser.length;
+    }catch(e){
+    }
+
     await this.service.getUsers().then(result => {
-      this.arrUser = result;
+
       this.storageService.insertCacheUsersList(result);
+
+      if(this.arrUser == null || this.arrUser == undefined){
+        this.arrUser = result;
+      }
+
     });
   }
+
+
+  filterData(){
+    this.arrUser = this.arrUserAll.filter(data => {
+      return data.apelidoUsuario.toLowerCase().startsWith(this.searchName.toLowerCase());
+    });
+    this.totalItensBusca = this.arrUser.length;
+    this.activePageDataChunk = this.arrUser.slice(0,this.pageSize);
+  }
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+  }
+  onPageChanged(e) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.arrUser.slice(firstCut, secondCut);
+  }
+
+
+
+
+
+
 
   editUser(user: Usuario) {
     this.openDialog(user);
   }
-
   openDialog(user: Usuario): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: "400px",
@@ -62,10 +121,18 @@ export class UsersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.arrUser = result;
+        this.activePageDataChunk = this.arrUser.slice(0,this.pageSize);
       }
     });
   }
 }
+
+
+
+
+
+
+
 @Component({
   selector: "dialog-overview-example-dialog",
   templateUrl: "user-dialog.html",
@@ -84,6 +151,27 @@ export class DialogOverviewExampleDialog implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   getErrorMessage() {
     return this.email.hasError("required")
