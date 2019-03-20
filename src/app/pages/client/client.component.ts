@@ -1,12 +1,15 @@
-import { PagerService } from './../../services/pager.service';
 import { ClientService } from './../../services/client.service';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from './../../services/storage.service';
 import { LoginService } from '../../services/login.service';
-import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {Router} from '@angular/router';
 import {PageEvent} from '@angular/material';
+
+//A morte é uma parte natural da vida. 
+//Feliz fique por aqueles que na Força se transformam. 
+//Apego leva ao ciúmes, a sombra da ganância isso é.
+//"Mestre Yoda"
+
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -50,12 +53,12 @@ export class ClientComponent implements OnInit {
     pageEvent: PageEvent;
     activePageDataChunk = []
     displayedColumns: string[] = ['COD', 'NOME', 'NOMEFANTASIA', 'TIPOCLIFORN'];
+
   constructor(
     private loginService:LoginService,
     private router: Router,
     private clientService:ClientService,
-    private storageService:StorageService,
-    private paginationService:PagerService
+    private storageService:StorageService
     ) { 
 
     //#######################################################
@@ -83,7 +86,7 @@ export class ClientComponent implements OnInit {
     //#######################################################
     //Busca todos os dados da lista de clientes do cache, isso
     //serve como base para a busca subsequente pelo usuário
-    this.arrClientListAll = storageService.getAllClientList();
+    this.arrClientListAll = this.arrClientList;
     //#######################################################
 
     //#######################################################

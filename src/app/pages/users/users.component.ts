@@ -4,8 +4,6 @@ import { UserService } from "./../../services/user.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
 import { FormControl, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material";
-import { FormControl, Validators } from "@angular/forms";
 import {
   MatDialog,
   MatDialogRef,

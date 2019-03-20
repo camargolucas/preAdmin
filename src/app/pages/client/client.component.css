@@ -8,3 +8,11 @@ table {
 .example-full-width{
   width:100%;
 }
+
+.inputSearchUser{
+  font-size: 18px;
+}
+.mat-row:hover{
+  cursor:pointer;
+  background:rgb(231, 231, 231);
+}

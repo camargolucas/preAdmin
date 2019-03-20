@@ -43,6 +43,7 @@ import {
   MAT_DIALOG_DEFAULT_OPTIONS,
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
+import { EconomicGroupDetailComponent } from './pages/economic-group-detail/economic-group-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import {
     StoreComponent,
     GerentesComponent,
     EconomicGroupComponent,
-    ClientComponent
+    ClientComponent,
+    EconomicGroupDetailComponent
   ],
   imports: [
     BrowserModule,

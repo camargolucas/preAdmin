@@ -5,6 +5,8 @@ import { StorageService } from "./../../services/storage.service";
 import { PagerService } from './../../services/pager.service';
 import { LoginService } from '../../services/login.service';
 import {Router} from '@angular/router';
+import {PageEvent} from '@angular/material';
+//Guerras não faz grande ninguém. "Mestre Yoda"
 @Component({
   selector: 'app-economic-group',
   templateUrl: './economic-group.component.html',
@@ -18,7 +20,6 @@ export class EconomicGroupComponent implements OnInit {
   //#######################################################
 
   arrEconominGroup;
-
   arrEconominGroupAll;
 
    //#######################################################
@@ -40,6 +41,13 @@ export class EconomicGroupComponent implements OnInit {
   // paged items
   pagedItems: any[];
 
+  // MatPaginator Inputs
+  pageSize = 10;
+  pageSizeOptions: number[] = [10];
+  // MatPaginator Output
+  pageEvent: PageEvent;
+  activePageDataChunk = []
+  displayedColumns: string[] = ['COD', 'NOME'];
 
   constructor(
     private router: Router,
@@ -51,10 +59,7 @@ export class EconomicGroupComponent implements OnInit {
       this.arrEconominGroup = this.storage.getAllDataEconomicGroup();
       this.arrEconominGroupAll = this.storage.getAllDataEconomicGroup();
       this.getAllEconomicGroupData();
-    //#######################################################
-    //define a página atual para o serviço de paginação
-    this.setPage(1);
-    //#######################################################
+
     //#######################################################
     //Verificamos de o usuário esta logado, true para logado e false para não logado
     this.userLogged = loginService.checkIfUserIsLogged();
@@ -70,8 +75,12 @@ export class EconomicGroupComponent implements OnInit {
     }
     
     //#######################################################
-    }
 
+      if(this.arrEconominGroup != undefined){
+        this.activePageDataChunk = this.arrEconominGroup.slice(0,this.pageSize);
+      }
+
+    }
   ngOnInit() {
     //##############################################
     //Se o usuário não estiver logado, o 
@@ -81,15 +90,15 @@ export class EconomicGroupComponent implements OnInit {
     }
      //##############################################
   }
-
   public getAllEconomicGroupData(){
     try{
       this.service.getEconomicGroupList().subscribe(data => {
         
           this.arrEconominGroupAll = data;
 
-          if(this.arrEconominGroup == null){
+          if(this.arrEconominGroup == null || this.arrEconominGroup == undefined){
             this.arrEconominGroup = data;
+            this.activePageDataChunk = this.arrEconominGroup.slice(0,this.pageSize);
           }
           
           this.storage.insertCacheEconomicGroup(data);
@@ -110,20 +119,21 @@ export class EconomicGroupComponent implements OnInit {
         .startsWith(this.searchName.toLowerCase());
     });
     this.totalItensBusca = this.arrEconominGroup.length;
-    this.setPage(1);
+    this.activePageDataChunk = this.arrEconominGroup.slice(0,this.pageSize);
   }
 
-  setPage(page: number) {
-    try{
-    // get pager object from service
-    this.pager = this.paginationService.getPager(this.arrEconominGroup.length, page);
-    // get current page of items
-    this.pagedItems = this.arrEconominGroup.slice(this.pager.startIndex, this.pager.endIndex + 1);
-
-    }catch(e){
-      console.log(e);
-    }
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
-
   
+  onPageChanged(e) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.arrEconominGroup.slice(firstCut, secondCut);
+  }
+
+  goDetails(id:any){
+    this.router.navigate(['home/economic-group/'+id]);
+  }
+
 }

@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
+
 export class EconomicGroupService extends ApiDataService{
   constructor(private http: HttpClient) {
     super();

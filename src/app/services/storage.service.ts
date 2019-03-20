@@ -116,6 +116,29 @@ export class StorageService {
   getAllClientList() {
     return JSON.parse(localStorage.getItem("dataClientList"));
   }
+
+  getAllEconomicGroupClientList(id:any) {
+
+    console.log("ID : " + id);
+
+    let arrData =  JSON.parse(localStorage.getItem("dataClientList"));
+
+    if(arrData != undefined && arrData != null){
+
+      return arrData.filter(function (el) {
+
+        return (el.IDGRUPOECONOMICOCLIENTE === id);
+
+      });
+
+    }else{
+
+      return null;
+
+    }
+
+  }
+
   getTotalClient() {
     let arr = this.getAllClientList();
     return arr.length;

@@ -12,6 +12,7 @@ import { PageNotFoundComponentComponent } from './pages/page-not-found-component
 import { GerentesComponent } from './pages/gerentes/gerentes.component';
 import { EconomicGroupComponent } from './pages/economic-group/economic-group.component';
 import { ClientComponent } from './pages/client/client.component';
+import { EconomicGroupDetailComponent } from './pages/economic-group-detail/economic-group-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component:  DashboardComponent},
     { path: 'economic-group', component:  EconomicGroupComponent},
+    { path: 'economic-group/:id', component:  EconomicGroupDetailComponent},
     { path: 'client', component:  ClientComponent},
     { path: 'store', component:  StoreComponent},
     { path: 'purchase', component:  PurchaseComponent},
