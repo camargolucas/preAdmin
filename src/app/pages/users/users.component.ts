@@ -4,8 +4,6 @@ import { UserService } from "./../../services/user.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
 import { FormControl, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material";
-import { FormControl, Validators } from "@angular/forms";
 import {
   MatDialog,
   MatDialogRef,
@@ -46,14 +44,6 @@ export class UsersComponent implements OnInit {
   }
 
   editUser(user: Usuario) {
-    /*     this.user = new Usuario();
-
-    this.user.email = user.email;
-    this.user.nomeUsuario = user.nomeUsuario;
-    this.user.apelidoUsuario = user.apelidoUsuario;
-    this.user.loja = user.loja;
-    this.user.idUsuario = user.idUsuario;
- */
     this.openDialog(user);
   }
 
@@ -70,8 +60,9 @@ export class UsersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("The dialog was closed");
-      console.log(result);
+      if (result) {
+        this.arrUser = result;
+      }
     });
   }
 }
@@ -87,7 +78,8 @@ export class DialogOverviewExampleDialog {
     public snackBar: MatSnackBar,
     public service: UserService,
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public storageService: StorageService
   ) {}
 
   getErrorMessage() {
@@ -111,8 +103,10 @@ export class DialogOverviewExampleDialog {
   update(user: Usuario) {
     this.updateUser(user).then(ret => {
       if (ret == 1) {
+        this.storageService.updateClient(this.data).then(ret => {
+          this.dialogRef.close(ret);
+        });
         this.openSnackBar("Alterado com sucesso", "Fechar");
-        this.dialogRef.close();
       } else {
         this.openSnackBar("Não foi possivel alterar", "Fechar");
       }
