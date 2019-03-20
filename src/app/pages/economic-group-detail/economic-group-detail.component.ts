@@ -19,6 +19,7 @@ export class EconomicGroupDetailComponent implements OnInit {
   //#######################################################
 
   idEconomicGroup: number;
+  nomeEconomicGroup: string = "NOME DO GRUPO ECONÔMICO";
   private sub: any;
 
   error:any;

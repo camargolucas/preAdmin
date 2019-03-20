@@ -131,6 +131,8 @@ export class ClientComponent implements OnInit {
       console.log(e);
     }
   }
+
+  
   filterData(){
     this.arrClientList = this.arrClientListAll.filter(data => {
       return data.NOME
