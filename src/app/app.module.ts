@@ -10,7 +10,10 @@ import { PageHomeComponent } from "./pages/page-home/page-home.component";
 import { NavbarDefaultComponent } from "./component/navbar-default/navbar-default.component";
 import { PurchaseComponent } from "./pages/purchase/purchase.component";
 import { StockRequestsComponent } from "./pages/stock-requests/stock-requests.component";
-import { UsersComponent } from "./pages/users/users.component";
+import {
+  UsersComponent,
+  DialogOverviewExampleDialog
+} from "./pages/users/users.component";
 import { AdminComponent } from "./pages/admin/admin.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
@@ -29,11 +32,17 @@ import {
   MatListModule,
   MatTableModule,
   MatPaginatorModule,
+  MatFormFieldModule,
+  MAT_LABEL_GLOBAL_OPTIONS,
   MatInputModule
 } from "@angular/material";
 import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
 import { ClientComponent } from "./pages/client/client.component";
-
+import {
+  MatDialogModule,
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +55,7 @@ import { ClientComponent } from "./pages/client/client.component";
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponentComponent,
+    DialogOverviewExampleDialog,
     UserFilterPipe,
     StoreComponent,
     GerentesComponent,
@@ -69,9 +79,17 @@ import { ClientComponent } from "./pages/client/client.component";
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatInputModule,
+    MatDialogModule,
+    MatFormFieldModule,
     MatInputModule
   ],
-  providers: [LoginService],
+  entryComponents: [DialogOverviewExampleDialog],
+  providers: [
+    LoginService,
+    [{ provide: MAT_DIALOG_DATA, useValue: { hasBackdrop: false } }]
+    // { provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: { float: "always" } }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

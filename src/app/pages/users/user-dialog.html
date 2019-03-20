@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Edição de Usuário</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput type="text" [formControl]="email" [(ngModel)]="data.email" placeholder="Email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="data.nomeUsuario" placeholder="Nome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="data.apelidoUsuario" placeholder="Apelido">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput #inputLoja type="number" [(ngModel)]="data.loja" placeholder="Loja">
+      <mat-hint align="end">{{inputLoja.value?.length || 0}}/5</mat-hint>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button (click)="update(data)" cdkFocusInitial><strong>Salvar</strong></button>
+</div>
