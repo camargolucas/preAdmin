@@ -12,7 +12,7 @@
       <input matInput type="text" [(ngModel)]="data.apelidoUsuario" placeholder="Apelido">
     </mat-form-field>
     <mat-form-field>
-      <input matInput #inputLoja type="number" [(ngModel)]="data.loja" placeholder="Loja">
+      <input matInput #inputLoja type="number" [(ngModel)]="data.loja" placeholder="Loja" min="1">
       <mat-hint align="end">{{inputLoja.value?.length || 0}}/5</mat-hint>
     </mat-form-field>
   </div>

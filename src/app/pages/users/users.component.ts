@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
 
   arrUser;
   arrUserAll;
-  searchName;
+  searchName ="";
 
   //#######################################################
   //Variavel que armazena o total de resultados encontrados
@@ -49,7 +49,6 @@ export class UsersComponent implements OnInit {
     public storageService: StorageService
   ) {
     this.user = new Usuario();
-
 
   }
 
@@ -96,17 +95,13 @@ export class UsersComponent implements OnInit {
     let secondCut = firstCut + e.pageSize;
     this.activePageDataChunk = this.arrUser.slice(firstCut, secondCut);
   }
-
-
-
-
-
-
-
   editUser(user: Usuario) {
     this.openDialog(user);
   }
   openDialog(user: Usuario): void {
+    //Nnecessário para atribur valor ao array de filtros
+    this.filterData();
+
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: "400px",
       data: {
@@ -119,9 +114,17 @@ export class UsersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+
       if (result) {
-        this.arrUser = result;
-        this.activePageDataChunk = this.arrUser.slice(0,this.pageSize);
+        this.arrUserAll = result;
+        
+        try{
+          this.filterData();
+          this.activePageDataChunk = result.slice(0,this.pageSize);
+        }catch{
+
+        }
+        
       }
     });
   }

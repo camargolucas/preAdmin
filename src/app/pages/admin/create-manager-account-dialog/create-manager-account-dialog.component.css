@@ -1,0 +1,34 @@
+.center {
+    text-align: center;
+  }
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+  }
+  .example-container>* {
+    width: 100%;
+  }
+  table {
+    width: 100%;
+  }
+  .boxPadrao{
+    background:#ffffff;
+    padding: 24px;
+  }
+  .example-full-width{
+    width:100%;
+  }
+  .inputSearchUser{
+    font-size: 18px;
+  }
+  .mat-row:hover{
+    cursor:pointer;
+    background:rgb(231, 231, 231);
+  }

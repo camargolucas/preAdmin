@@ -83,6 +83,53 @@ export class StorageService {
     let arr = this.getAllDataEconomicGroup();
     return arr.length;
   }
+  getAllEconomicGroupClientList(id:any) {
+
+    let arrData =  JSON.parse(localStorage.getItem("dataClientList"));
+
+    if(arrData != undefined && arrData != null){
+
+      return arrData.filter(function (el) {
+
+        return (el.IDGRUPOECONOMICOCLIENTE === id);
+
+      });
+
+    }else{
+
+      return null;
+
+    }
+
+  }
+
+  getEconomicGroupById(id:any){
+    let arrData = this.getAllDataEconomicGroup();
+
+    if(arrData != undefined && arrData != null){
+      return arrData.filter(function (el) {
+        return (el.idGrupoEconomicoCliente === id);
+      });
+    }else{
+      return null;
+    }
+  }
+
+  getEconomicGroupNameById(id:any){
+
+    let arrData = this.getEconomicGroupById(id);
+
+    if(arrData != undefined && arrData != null){
+
+      return arrData[0]['nomeGrupoEconomicoCliente'];
+
+    }else{
+
+      return null;
+
+    }
+
+  }
   //###########################################
   //###########################################
   //Controla o Cache da lista dos usuários
@@ -116,34 +163,13 @@ export class StorageService {
   getAllClientList() {
     return JSON.parse(localStorage.getItem("dataClientList"));
   }
-
-  getAllEconomicGroupClientList(id:any) {
-
-    console.log("ID : " + id);
-
-    let arrData =  JSON.parse(localStorage.getItem("dataClientList"));
-
-    if(arrData != undefined && arrData != null){
-
-      return arrData.filter(function (el) {
-
-        return (el.IDGRUPOECONOMICOCLIENTE === id);
-
-      });
-
-    }else{
-
-      return null;
-
-    }
-
-  }
+  //###########################################
+  //###########################################
 
   getTotalClient() {
     let arr = this.getAllClientList();
     return arr.length;
   }
-
   updateClient(user) {
     return new Promise(resolve => {
       let arrUser: Array<Usuario> = this.getAllDataUserList();

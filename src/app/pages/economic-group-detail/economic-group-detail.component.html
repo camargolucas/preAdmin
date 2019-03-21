@@ -18,6 +18,7 @@
           <input class="inputSearchUser" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchName" (ngModelChange)="filterData()" matInput placeholder="Buscar Cliente">
         </mat-form-field>
     </form>
+    <div *ngIf="totalItensBusca == 0"><p>Nenhum resultado encontrado!</p></div>
 </div>
 <table mat-table [dataSource]="activePageDataChunk" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order. The actual rendered columns are set as a property on the row definition" -->
@@ -50,6 +51,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 <div class="mat-elevation-z8">
+
 <mat-paginator 
   [length]="totalItensBusca"
   [pageSize]="pageSize"

@@ -50,6 +50,27 @@ export class UserService extends ApiDataService {
 
   getLoggedUserLevel() {}
 
+  createNewManagerAccount(user: Usuario){
+    let userData = JSON.stringify(user);
+    return new Promise((resolve, reject) => {
+      return this.http
+        .post(
+          this.API_URL +
+            "admin/user/create/manager/" +
+            encodeURIComponent(userData) +
+            "",
+          this.requestOptions
+        )
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            reject(err);
+          }
+        );
+    });
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

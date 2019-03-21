@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Criar uma conta de Gerente</h1>
+<div mat-dialog-content>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput type="text" [formControl]="email" [(ngModel)]="data.email" placeholder="Email" required autocomplete="off">
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="data.nomeUsuario" placeholder="Nome" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="data.apelidoUsuario" placeholder="Apelido" autocomplete="off">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput #inputLoja type="number" [(ngModel)]="data.loja" placeholder="Loja" min="1">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createNewManagerAccount(data)" cdkFocusInitial>Salvar</button>
+</div>

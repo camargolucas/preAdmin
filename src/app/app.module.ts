@@ -34,7 +34,10 @@ import {
   MatPaginatorModule,
   MatFormFieldModule,
   MAT_LABEL_GLOBAL_OPTIONS,
-  MatInputModule
+  MatInputModule,
+  MatCardModule,
+  MatGridListModule
+  
 } from "@angular/material";
 import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
 import { ClientComponent } from "./pages/client/client.component";
@@ -44,6 +47,7 @@ import {
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
 import { EconomicGroupDetailComponent } from './pages/economic-group-detail/economic-group-detail.component';
+import { CreateManagerAccountDialogComponent } from './pages/admin/create-manager-account-dialog/create-manager-account-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +66,8 @@ import { EconomicGroupDetailComponent } from './pages/economic-group-detail/econ
     GerentesComponent,
     EconomicGroupComponent,
     ClientComponent,
-    EconomicGroupDetailComponent
+    EconomicGroupDetailComponent,
+    CreateManagerAccountDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -84,9 +89,14 @@ import { EconomicGroupDetailComponent } from './pages/economic-group-detail/econ
     MatInputModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatGridListModule,
   ],
-  entryComponents: [DialogOverviewExampleDialog],
+  entryComponents: [
+    DialogOverviewExampleDialog, 
+    CreateManagerAccountDialogComponent
+  ],
   providers: [
     LoginService,
     [{ provide: MAT_DIALOG_DATA, useValue: { hasBackdrop: false } }]

@@ -23,7 +23,7 @@ export class EconomicGroupDetailComponent implements OnInit {
   private sub: any;
 
   error:any;
-
+  arrEconomicGroup;
   arrEconomicGroupClient;
   arrEconomicGroupClientAll;
 
@@ -58,9 +58,7 @@ export class EconomicGroupDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     window.scrollTo(0, 0);
-
     //##############################################
     //Se o usuário não estiver logado, o 
     //sistema redireciona para a página de login
@@ -69,10 +67,21 @@ export class EconomicGroupDetailComponent implements OnInit {
     }
      //##############################################
     this.sub = this.route.params.subscribe(params => {
-      this.idEconomicGroup = + params['id']; // (+) converts string 'id' to a number
+    this.idEconomicGroup = + params['id']; // (+) converts string 'id' to a number
       // In a real app: dispatch action to load the details here.
 
+    this.arrEconomicGroup = this.storageService.getEconomicGroupById(this.idEconomicGroup);
 
+    
+    if(this.arrEconomicGroup == undefined || this.arrEconomicGroup == null){
+      this.router.navigateByUrl('/home/economic-group');
+    }
+
+    try{
+      this.nomeEconomicGroup = this.storageService.getEconomicGroupNameById(this.idEconomicGroup);
+    }catch(e){
+      this.router.navigateByUrl('/home/economic-group');
+    }
     //#######################################################
     //Resgata a lista de clientes no cache do usuário
     //esta variável irá conter os dados parciais dependendo
@@ -99,19 +108,16 @@ export class EconomicGroupDetailComponent implements OnInit {
     }
     //#######################################################
 
-
+    
    });
 
-
    this.getAllClientData();
-
 
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
 
   public getAllClientData(){
     try{
