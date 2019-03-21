@@ -20,3 +20,11 @@
 .example-container>* {
   width: 100%;
 }
+
+.btn-salvar {
+  margin-left: auto !important;
+}
+
+.btn {
+  display: flex !important;
+}
