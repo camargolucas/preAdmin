@@ -3,7 +3,7 @@
   <div class="example-container">
     <mat-form-field>
       <input matInput type="text" [formControl]="email" [(ngModel)]="data.email" placeholder="Email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <mat-error *ngIf="email.invalid">Email</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput type="text" [(ngModel)]="data.nomeUsuario" placeholder="Nome">
@@ -17,7 +17,7 @@
     </mat-form-field>
   </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-raised-button color="primary" (click)="update(data)" cdkFocusInitial>Salvar</button>
+<div mat-dialog-actions class="btn">
+  <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button class="btn-salvar" color="primary" (click)="update(data)" cdkFocusInitial>Salvar</button>
 </div>

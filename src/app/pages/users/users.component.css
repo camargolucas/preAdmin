@@ -18,17 +18,29 @@
 table {
   width: 100%;
 }
-.boxPadrao{
-  background:#ffffff;
+
+.boxPadrao {
+  background: #ffffff;
   padding: 24px;
 }
-.example-full-width{
-  width:100%;
+
+.example-full-width {
+  width: 100%;
 }
-.inputSearchUser{
+
+.inputSearchUser {
   font-size: 18px;
 }
-.mat-row:hover{
-  cursor:pointer;
-  background:rgb(231, 231, 231);
+
+.mat-row:hover {
+  cursor: pointer;
+  background: rgb(231, 231, 231);
+}
+
+.btn-salvar {
+  margin-left: auto !important;
+}
+
+.btn {
+  display: flex !important;
 }
