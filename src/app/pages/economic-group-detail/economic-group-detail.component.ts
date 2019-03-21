@@ -58,6 +58,9 @@ export class EconomicGroupDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+    window.scrollTo(0, 0);
+
     //##############################################
     //Se o usuário não estiver logado, o 
     //sistema redireciona para a página de login
