@@ -49,6 +49,7 @@ import {
 } from "@angular/material/dialog";
 import { EconomicGroupDetailComponent } from './pages/economic-group-detail/economic-group-detail.component';
 import { CreateManagerAccountDialogComponent } from './pages/admin/create-manager-account-dialog/create-manager-account-dialog.component';
+import { CreateUserAccountDialogComponent } from './pages/admin/create-user-account-dialog/create-user-account-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { CreateManagerAccountDialogComponent } from './pages/admin/create-manage
     EconomicGroupComponent,
     ClientComponent,
     EconomicGroupDetailComponent,
-    CreateManagerAccountDialogComponent
+    CreateManagerAccountDialogComponent,
+    CreateUserAccountDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +98,8 @@ import { CreateManagerAccountDialogComponent } from './pages/admin/create-manage
   ],
   entryComponents: [
     DialogOverviewExampleDialog, 
-    CreateManagerAccountDialogComponent
+    CreateManagerAccountDialogComponent,
+    CreateUserAccountDialogComponent
   ],
   providers: [
     LoginService,

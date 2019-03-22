@@ -18,7 +18,7 @@
       <mat-card class="example-card mat-elevation-z8">
           <mat-card-header>
             <mat-card-title>Gerentes</mat-card-title>
-            <mat-card-subtitle><strong>12</strong> Gerentes</mat-card-subtitle>
+            <mat-card-subtitle><strong>{{totalManager}}</strong> Gerentes</mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
             <button mat-button (click)="createNewManagerAccount()">Cadastrar</button>
@@ -31,10 +31,10 @@
           <mat-card class="example-card mat-elevation-z8">
               <mat-card-header>
                 <mat-card-title>Usuários</mat-card-title>
-                <mat-card-subtitle><strong>12</strong> Usuários</mat-card-subtitle>
+                <mat-card-subtitle><strong>{{totalUsers}}</strong> Usuários</mat-card-subtitle>
               </mat-card-header>
               <mat-card-actions>
-                <button mat-button>Cadastrar</button>
+                <button mat-button (click)="createNewUserAccount()">Cadastrar</button>
                 <button routerLink="/home/users" mat-button>Listar</button>
               </mat-card-actions>
             </mat-card>

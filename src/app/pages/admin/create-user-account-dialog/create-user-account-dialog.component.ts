@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-//import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
-import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Usuario } from "src/app/model/user.model";
 import { MatSnackBar } from "@angular/material";
 import { UserService } from "./../../../services/user.service";
@@ -8,12 +7,11 @@ import { StorageService } from "../../../services/storage.service";
 import { FormControl, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-create-manager-account-dialog',
-  templateUrl: './create-manager-account-dialog.component.html',
-  styleUrls: ['./create-manager-account-dialog.component.css']
+  selector: 'app-create-user-account-dialog',
+  templateUrl: './create-user-account-dialog.component.html',
+  styleUrls: ['./create-user-account-dialog.component.css']
 })
-
-export class CreateManagerAccountDialogComponent implements OnInit {
+export class CreateUserAccountDialogComponent implements OnInit {
 
   email = new FormControl("", [Validators.required, Validators.email]);
   form;
@@ -22,13 +20,9 @@ export class CreateManagerAccountDialogComponent implements OnInit {
     public snackBar: MatSnackBar,
     public service: UserService,
     public storageService: StorageService,
-    public dialogRef: MatDialogRef<CreateManagerAccountDialogComponent>,
+    public dialogRef: MatDialogRef<CreateUserAccountDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Usuario
-    ) {
-
-
-
-    }
+    ) {}
 
   ngOnInit() {
   }
@@ -57,7 +51,6 @@ export class CreateManagerAccountDialogComponent implements OnInit {
     if(this.data.email != null && this.email.invalid == false){
       if(this.data.nomeUsuario != null && this.data.nomeUsuario != undefined && this.data.nomeUsuario.length > 0){
         if(this.data.apelidoUsuario != null && this.data.apelidoUsuario != undefined && this.data.apelidoUsuario.length > 0){
-
           this.createAccount(this.data).then(ret => {
             if (ret == 1) {
               this.service.getUsers().then(result => {
@@ -72,7 +65,6 @@ export class CreateManagerAccountDialogComponent implements OnInit {
               this.openSnackBar("Não foi possivel criar esta conta", "Fechar");
             }
           });
-
       }else{
         this.openSnackBar("Informe o Apelido do usuário", "Fechar");
       }
@@ -84,9 +76,7 @@ export class CreateManagerAccountDialogComponent implements OnInit {
     }
   }
   createAccount(user: Usuario){
-    return this.service.createNewManagerAccount(user);
+    return this.service.createNewUserAccount(user);
   }
-
-
 
 }

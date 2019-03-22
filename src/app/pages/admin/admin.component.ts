@@ -6,6 +6,8 @@ import { MatSnackBar } from "@angular/material";
 import { FormControl, Validators } from "@angular/forms";
 import { UserService } from "./../../services/user.service";
 import { CreateManagerAccountDialogComponent } from './create-manager-account-dialog/create-manager-account-dialog.component';
+import { CreateUserAccountDialogComponent } from './create-user-account-dialog/create-user-account-dialog.component';
+
 import {PageEvent} from '@angular/material';
 
 import {
@@ -32,6 +34,8 @@ export class AdminComponent implements OnInit {
   public shouldShow = false;
   animal: string;
   name: string;
+  totalUsers:any = 0;
+  totalManager:any = 0;
 
   constructor(
     private storage: StorageService, 
@@ -42,6 +46,7 @@ export class AdminComponent implements OnInit {
     ) {
     this.usuario = new Usuario(); //Obtém a instância do Objeto Usuário
     this.usuario = this.storage.getAllDataLoggedUser(); //Busca os dados do usuário no Storage
+    this.totalUsers = service.getTotalUsers();
   }
 
   ngOnInit() {
@@ -50,8 +55,6 @@ export class AdminComponent implements OnInit {
       this.router.navigateByUrl("/home");
     }
   }
-
-
   createNewManagerAccount():void{
     let dialogRef = this.dialog.open(CreateManagerAccountDialogComponent, {
       width: '400px',
@@ -59,10 +62,17 @@ export class AdminComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog closed: ${result}`);
-      //this.dialogResult = result;
     });
   }
-
+  createNewUserAccount():void{
+    let dialogRef = this.dialog.open(CreateUserAccountDialogComponent, {
+      width: '400px',
+      data: this.usuario
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog closed: ${result}`);
+    });
+  }
 
 
 
