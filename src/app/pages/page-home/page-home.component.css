@@ -2,6 +2,7 @@
     outline: none;
 }
 .toolbar{
+    background:#293846;
     position: sticky;
     position: -webkit-sticky; /* For macOS/iOS Safari */
     top: 0; /* Sets the sticky toolbar to be on top */
@@ -13,13 +14,25 @@
     bottom: 0;
     left: 0;
     right: 0;
+    background: #E5E5E5;
   }
   .sidenav{
     min-width:200px;
     max-width: 200px;
     padding-top:20px;
+    background: #2F4050;
+    color:#A7B1C2;
 }
-
+.sidenav button:hover{
+    color:#FFFFFF;
+    border-left:4px solid #19AA8D;
+    background:#293846;
+}
+.active{
+    border-left:4px solid #19AA8D;
+    background:#293846;
+    color:#FFFFFF;
+}
 
 .sidenavMenuButton{
     width:100%;
@@ -30,4 +43,12 @@
     padding:4px;
     width:24px;
     height:24px;
+}
+.branding-logo{
+    font-size: 15px;
+    line-height: 1;
+}
+
+.avatarUserMenu{
+    
 }
