@@ -36,7 +36,13 @@ import {
   MAT_LABEL_GLOBAL_OPTIONS,
   MatInputModule,
   MatCardModule,
-  MatGridListModule
+  MatGridListModule,
+  MatIconModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatRippleModule,
+  MatRadioModule
   
 } from "@angular/material";
 import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
@@ -94,6 +100,13 @@ import { CreateUserAccountDialogComponent } from './pages/admin/create-user-acco
     MatInputModule,
     MatCardModule,
     MatGridListModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatRippleModule,
+    MatRadioModule
+
   ],
   entryComponents: [
     DialogOverviewExampleDialog, 

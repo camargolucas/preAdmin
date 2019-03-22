@@ -5,7 +5,7 @@ import { Component, OnInit, Renderer } from '@angular/core';
 import {Router} from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Title } from '@angular/platform-browser';
-
+import {FormControl} from '@angular/forms';
 @Component({
   selector: 'app-page-home',
   templateUrl: './page-home.component.html',
@@ -15,7 +15,8 @@ export class PageHomeComponent implements OnInit {
 
   userLogged:boolean = false;
   usuario:Usuario;
-
+  mode = new FormControl('side');
+ 
   constructor(
     private titleService:Title,
     private loginService:LoginService, 
@@ -46,6 +47,9 @@ export class PageHomeComponent implements OnInit {
   }
   changeClass(event:any){
     this.renderer.setElementClass(event.target,"active",true);
+  }
+
+  toggleSidenav(){
   }
 
 }

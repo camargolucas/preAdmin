@@ -1,0 +1,31 @@
+*:focus {
+    outline: none;
+}
+.toolbar{
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+.example-container {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .sidenav{
+    min-width:200px;
+    max-width: 200px;
+    padding-top:20px;
+}
+
+
+.sidenavMenuButton{
+    width:100%;
+    text-align: left;
+}
+.sidebar-icon{
+    font-size: 20px;
+    padding:4px;
+}

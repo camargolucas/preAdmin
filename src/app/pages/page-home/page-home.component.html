@@ -1,69 +1,34 @@
-<div id="wrapper">
-    <app-navbar-default></app-navbar-default>
-    <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary"><i class="fa fa-bars"></i> </a>
-            </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li style="padding: 20px">
-                    <span class="m-r-sm text-muted welcome-message">Seja Bem-vindo ao Painel de Controle.</span>
-                </li>
-                <li class="dropdown">
-                
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="mailbox.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                    <span class="float-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="profile.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="float-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="grid_options.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="float-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="notifications.html" class="dropdown-item">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a (click)="signOutUser()" ><i class="fa fa-sign-out"></i> Saír</a>
-                </li>
-            </ul>
-        </nav>
-        </div>
+<mat-toolbar color="primary" class="mat-elevation-z8 toolbar">
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span> Thoth Company </span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" >
+    
+    <mat-sidenav #sidenav [mode]="mode.value" class="sidenav mat-elevation-z8">
+
+        <button mat-button class="sidenavMenuButton"><i class="fa fa-handshake-o fa-5x sidebar-icon"></i>Grupo Econômico</button>
+        <button mat-button class="sidenavMenuButton"><mat-icon class="mr-1">link</mat-icon>Link</button>
+        <button mat-button class="sidenavMenuButton"><mat-icon class="mr-1">link</mat-icon>Link</button>
+        <button mat-button class="sidenavMenuButton"><mat-icon class="mr-1">link</mat-icon>Link</button>
+  
+        <button mat-button class="sidenavMenuButton"><mat-icon class="mr-1">link</mat-icon>Link</button>
+        <button mat-button class="sidenavMenuButton"><mat-icon class="mr-1">link</mat-icon>Link</button>
+  
+                    
+
+ 
+               
+
+      
+    </mat-sidenav>
+
+    <mat-sidenav-content>
         <router-outlet></router-outlet>
-            <div class="footer">
-                <div>
-                    <strong>© Copyright 2019</strong> Thoth Company Technology. Todos os direitos reservados.
-                </div>
-            </div>
-    </div>
-</div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+
