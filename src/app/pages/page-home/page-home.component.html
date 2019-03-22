@@ -1,69 +1,31 @@
-<div id="wrapper">
-    <app-navbar-default></app-navbar-default>
-    <div id="page-wrapper" class="gray-bg dashbard-1">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary"><i class="fa fa-bars"></i> </a>
-            </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li style="padding: 20px">
-                    <span class="m-r-sm text-muted welcome-message">Seja Bem-vindo ao Painel de Controle.</span>
-                </li>
-                <li class="dropdown">
-                
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="mailbox.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                    <span class="float-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="profile.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="float-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a href="grid_options.html" class="dropdown-item">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="float-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="notifications.html" class="dropdown-item">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a (click)="signOutUser()" ><i class="fa fa-sign-out"></i> Saír</a>
-                </li>
-            </ul>
-        </nav>
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav #sidenav [mode]="mode.value" class="sidenav mat-elevation-z8">
+        <div class="avatarUserMenu">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" width="100px">
+            <div class="nameUserMenu">{{usuario.nomeUsuario}}</div>
+            <div *ngIf="userTiAdmin == false" class="nameUserMenu">Gerente</div>
+            <div *ngIf="userTiAdmin == true" class="nameUserMenu">Ti Admin</div>
         </div>
-        <router-outlet></router-outlet>
-            <div class="footer">
-                <div>
-                    <strong>© Copyright 2019</strong> Thoth Company Technology. Todos os direitos reservados.
-                </div>
+        <button (click)="addClass(itemMenu=1)" [ngClass]="{'active': itemMenu === 1 }" mat-button class="sidenavMenuButton active" routerLink="/home"><mat-icon class="mr-1">home</mat-icon>Painel de controle</button>
+        <button (click)="addClass(itemMenu=2)" [ngClass]="{'active': itemMenu === 2 }" mat-button class="sidenavMenuButton" routerLink="/home/economic-group"><mat-icon class="mr-1">group_work</mat-icon>Grupo Econômico</button>
+        <button (click)="addClass(itemMenu=3)" [ngClass]="{'active': itemMenu === 3 }" mat-button class="sidenavMenuButton" routerLink="/home/client"><mat-icon class="mr-1">group</mat-icon>Clientes</button>
+        <button (click)="addClass(itemMenu=4)" [ngClass]="{'active': itemMenu === 4 }" mat-button class="sidenavMenuButton" routerLink="/home/purchase"><mat-icon class="mr-1">shopping_cart</mat-icon>Compra</button>
+        <button (click)="addClass(itemMenu=5)" [ngClass]="{'active': itemMenu === 5 }" mat-button class="sidenavMenuButton" routerLink="/home/stockRequests"><mat-icon class="mr-1">storage</mat-icon>Estoque e pedido</button>
+        <button (click)="addClass(itemMenu=6)" [ngClass]="{'active': itemMenu === 6 }" mat-button class="sidenavMenuButton" routerLink="/home/users"><mat-icon class="mr-1">supervisor_account</mat-icon>Usuários</button>
+        <button *ngIf="userTiAdmin == true" (click)="addClass(itemMenu=7)" [ngClass]="{'active': itemMenu === 7 }" mat-button class="sidenavMenuButton" routerLink="/home/admin"><mat-icon class="mr-1">adb</mat-icon>Admin</button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" class="mat-elevation-z8 toolbar">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="branding-logo"> Thoth Company </span>
+            <div class="md-toolbar-tools" >
+                <button mat-icon-button (click)="signOutUser()">
+                    <mat-icon>exit_to_app</mat-icon> sair
+                </button>
             </div>
-    </div>
-</div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

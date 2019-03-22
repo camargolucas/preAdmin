@@ -1,5 +1,5 @@
-<div class="wrapper wrapper-content  animated fadeInRight">
-  <div class="row mat-elevation-z8 boxPadrao">
+
+  <div class="mat-elevation-z8 boxPadrao">
     <div class="col-lg-10 breadcrumbs_box">
         <h2>Ti Administrator</h2>
         <ol class="breadcrumb">
@@ -12,32 +12,31 @@
         </ol>
       </div>
   </div>
-  <br>
-  <div class="row">
-  <div class="col-lg-4 card-mat">
-      <mat-card class="example-card mat-elevation-z8">
-          <mat-card-header>
-            <mat-card-title>Gerentes</mat-card-title>
-            <mat-card-subtitle><strong>{{totalManager}}</strong> Gerentes</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-actions>
-            <button mat-button (click)="createNewManagerAccount()">Cadastrar</button>
-            <button mat-button>Listar</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
 
-      <div class="col-lg-4">
-          <mat-card class="example-card mat-elevation-z8">
-              <mat-card-header>
-                <mat-card-title>Usuários</mat-card-title>
-                <mat-card-subtitle><strong>{{totalUsers}}</strong> Usuários</mat-card-subtitle>
-              </mat-card-header>
-              <mat-card-actions>
-                <button mat-button (click)="createNewUserAccount()">Cadastrar</button>
-                <button routerLink="/home/users" mat-button>Listar</button>
-              </mat-card-actions>
-            </mat-card>
-      </div>
-</div>
+<div class="card-list">
+
+<mat-card class="dashboard-card mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>Gerentes</mat-card-title>
+    <mat-card-subtitle><strong>{{totalManager}}</strong> Gerentes</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button (click)="createNewManagerAccount()">Cadastrar</button>
+    <button mat-button>Listar</button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+<mat-card class="dashboard-card mat-elevation-z8">
+  <mat-card-header>
+    <mat-card-title>Usuários</mat-card-title>
+    <mat-card-subtitle><strong>{{totalUsers}}</strong> Usuários</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button (click)="createNewUserAccount()">Cadastrar</button>
+    <button routerLink="/home/users" mat-button>Listar</button>
+  </mat-card-actions>
+</mat-card>
+    
 </div>

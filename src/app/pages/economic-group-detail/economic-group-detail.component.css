@@ -1,9 +1,12 @@
+*:focus {
+  outline: none;
+}
 table {
     width: 100%;
   }
   .boxPadrao{
     background:#ffffff;
-    padding: 24px;
+    padding: 14px;
 }
 .example-full-width{
   width:100%;
@@ -16,4 +19,7 @@ table {
 .mat-row:hover{
     cursor:pointer;
     background:rgb(231, 231, 231);
+}
+h2, .h2 {
+  font-size: 1.2rem;
 }

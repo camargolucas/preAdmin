@@ -1,3 +1,6 @@
+*:focus {
+  outline: none;
+}
 .center {
   text-align: center;
 }
@@ -21,7 +24,7 @@ table {
 
 .boxPadrao {
   background: #ffffff;
-  padding: 24px;
+  padding: 14px;
 }
 
 .example-full-width {
@@ -44,4 +47,7 @@ table {
 .btn {
   display: flex !important;
   padding:12px;
+}
+h2, .h2 {
+  font-size: 1.2rem;
 }
