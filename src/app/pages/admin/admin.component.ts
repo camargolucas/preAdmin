@@ -6,6 +6,8 @@ import { MatSnackBar } from "@angular/material";
 import { FormControl, Validators } from "@angular/forms";
 import { UserService } from "./../../services/user.service";
 import { CreateManagerAccountDialogComponent } from './create-manager-account-dialog/create-manager-account-dialog.component';
+import { CreateUserAccountDialogComponent } from './create-user-account-dialog/create-user-account-dialog.component';
+
 import {PageEvent} from '@angular/material';
 
 import {
@@ -51,7 +53,6 @@ export class AdminComponent implements OnInit {
     }
   }
 
-
   createNewManagerAccount():void{
     let dialogRef = this.dialog.open(CreateManagerAccountDialogComponent, {
       width: '400px',
@@ -59,10 +60,17 @@ export class AdminComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog closed: ${result}`);
-      //this.dialogResult = result;
     });
   }
-
+  createNewUserAccount():void{
+    let dialogRef = this.dialog.open(CreateUserAccountDialogComponent, {
+      width: '400px',
+      data: this.usuario
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog closed: ${result}`);
+    });
+  }
 
 
 

@@ -43,4 +43,5 @@ table {
 
 .btn {
   display: flex !important;
+  padding:12px;
 }

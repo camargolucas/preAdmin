@@ -25,7 +25,6 @@ export class UserService extends ApiDataService {
       );
     });
   }
-
   updateUser(user: Usuario) {
     let userData = JSON.stringify(user);
     return new Promise((resolve, reject) => {
@@ -47,9 +46,8 @@ export class UserService extends ApiDataService {
         );
     });
   }
-
   getLoggedUserLevel() {}
-
+  
   createNewManagerAccount(user: Usuario){
     let userData = JSON.stringify(user);
     return new Promise((resolve, reject) => {
@@ -57,6 +55,27 @@ export class UserService extends ApiDataService {
         .post(
           this.API_URL +
             "admin/user/create/manager/" +
+            encodeURIComponent(userData) +
+            "",
+          this.requestOptions
+        )
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            reject(err);
+          }
+        );
+    });
+  }
+  createNewUserAccount(user: Usuario){
+    let userData = JSON.stringify(user);
+    return new Promise((resolve, reject) => {
+      return this.http
+        .post(
+          this.API_URL +
+            "admin/user/create/" +
             encodeURIComponent(userData) +
             "",
           this.requestOptions
