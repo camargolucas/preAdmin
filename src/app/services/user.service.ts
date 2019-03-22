@@ -4,12 +4,14 @@ import { ApiDataService } from "./api-data.service";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, retry } from "rxjs/operators";
 import { throwError, Observable } from "rxjs";
-
+import { MatSnackBar } from "@angular/material";
+import { StorageService } from './storage.service';
 @Injectable({
   providedIn: "root"
 })
 export class UserService extends ApiDataService {
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, public snackBar: MatSnackBar,public storageService:StorageService) {
     super();
   }
 
@@ -58,15 +60,20 @@ export class UserService extends ApiDataService {
             encodeURIComponent(userData) +
             "",
           this.requestOptions
-        )
-        .subscribe(
+        ).subscribe(
           res => {
             resolve(res);
           },
           err => {
+            this.openSnackBar("Parece que você esta sem conexão com a internet", "fechar");
             reject(err);
           }
         );
+    });
+  }
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 3000
     });
   }
   createNewUserAccount(user: Usuario){
@@ -85,6 +92,7 @@ export class UserService extends ApiDataService {
             resolve(res);
           },
           err => {
+            this.openSnackBar("Parece que você esta sem conexão com a internet", "fechar");
             reject(err);
           }
         );
@@ -103,5 +111,8 @@ export class UserService extends ApiDataService {
     }
     // return an observable with a user-facing error message
     return throwError("Something bad happened; please try again later.");
+  }
+  getTotalUsers(){
+    return this.storageService.getTotalUsers();
   }
 }

@@ -34,6 +34,8 @@ export class AdminComponent implements OnInit {
   public shouldShow = false;
   animal: string;
   name: string;
+  totalUsers:any = 0;
+  totalManager:any = 0;
 
   constructor(
     private storage: StorageService, 
@@ -44,6 +46,7 @@ export class AdminComponent implements OnInit {
     ) {
     this.usuario = new Usuario(); //Obtém a instância do Objeto Usuário
     this.usuario = this.storage.getAllDataLoggedUser(); //Busca os dados do usuário no Storage
+    this.totalUsers = service.getTotalUsers();
   }
 
   ngOnInit() {
@@ -52,7 +55,6 @@ export class AdminComponent implements OnInit {
       this.router.navigateByUrl("/home");
     }
   }
-
   createNewManagerAccount():void{
     let dialogRef = this.dialog.open(CreateManagerAccountDialogComponent, {
       width: '400px',

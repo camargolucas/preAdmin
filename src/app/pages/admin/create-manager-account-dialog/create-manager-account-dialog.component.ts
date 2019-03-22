@@ -57,6 +57,7 @@ export class CreateManagerAccountDialogComponent implements OnInit {
     if(this.data.email != null && this.email.invalid == false){
       if(this.data.nomeUsuario != null && this.data.nomeUsuario != undefined && this.data.nomeUsuario.length > 0){
         if(this.data.apelidoUsuario != null && this.data.apelidoUsuario != undefined && this.data.apelidoUsuario.length > 0){
+
           this.createAccount(this.data).then(ret => {
             if (ret == 1) {
               this.service.getUsers().then(result => {
@@ -71,6 +72,7 @@ export class CreateManagerAccountDialogComponent implements OnInit {
               this.openSnackBar("Não foi possivel criar esta conta", "Fechar");
             }
           });
+
       }else{
         this.openSnackBar("Informe o Apelido do usuário", "Fechar");
       }
