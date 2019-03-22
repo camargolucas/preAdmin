@@ -1,12 +1,10 @@
 <mat-sidenav-container class="example-container" >
     <mat-sidenav #sidenav [mode]="mode.value" class="sidenav mat-elevation-z8">
-
         <div class="avatarUserMenu">
             <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" width="100px">
             <div class="nameUserMenu">{{usuario.nomeUsuario}}</div>
             <div *ngIf="userTiAdmin == false" class="nameUserMenu">Gerente</div>
             <div *ngIf="userTiAdmin == true" class="nameUserMenu">Ti Admin</div>
-            
         </div>
         <button (click)="addClass(itemMenu=1)" [ngClass]="{'active': itemMenu === 1 }" mat-button class="sidenavMenuButton active" routerLink="/home"><mat-icon class="mr-1">home</mat-icon>Painel de controle</button>
         <button (click)="addClass(itemMenu=2)" [ngClass]="{'active': itemMenu === 2 }" mat-button class="sidenavMenuButton" routerLink="/home/economic-group"><mat-icon class="mr-1">group_work</mat-icon>Grupo Econômico</button>
@@ -16,16 +14,12 @@
         <button (click)="addClass(itemMenu=6)" [ngClass]="{'active': itemMenu === 6 }" mat-button class="sidenavMenuButton" routerLink="/home/users"><mat-icon class="mr-1">supervisor_account</mat-icon>Usuários</button>
         <button *ngIf="userTiAdmin == true" (click)="addClass(itemMenu=7)" [ngClass]="{'active': itemMenu === 7 }" mat-button class="sidenavMenuButton" routerLink="/home/admin"><mat-icon class="mr-1">adb</mat-icon>Admin</button>
     </mat-sidenav>
-
     <mat-sidenav-content>
-
         <mat-toolbar color="primary" class="mat-elevation-z8 toolbar">
             <button mat-icon-button (click)="sidenav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-
             <span class="branding-logo"> Thoth Company </span>
-
             <div class="md-toolbar-tools" >
                 <button mat-icon-button (click)="signOutUser()">
                     <mat-icon>exit_to_app</mat-icon> sair
@@ -34,7 +28,4 @@
         </mat-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
-
   </mat-sidenav-container>
-
-

@@ -22,3 +22,22 @@
     flex-direction: column;
     font-size: 16px;
   }
+.dashboard-card{
+    margin:10px;
+    
+}
+.card-list{
+    display: flex;
+}
+.boxPadrao{
+  background:#ffffff;
+  padding: 14px;
+}
+h2, .h2 {
+  font-size: 1.2rem;
+}
+@media (max-width: 999px) {
+    .card-list{
+        display: initial;
+    }   
+}
