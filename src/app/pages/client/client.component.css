@@ -1,3 +1,6 @@
+*:focus {
+  outline: none;
+}
 table {
     width: 100%;
   }

@@ -3,22 +3,27 @@
 }
 .toolbar{
     background:#293846;
+    display: flex;
     position: sticky;
     position: -webkit-sticky; /* For macOS/iOS Safari */
     top: 0; /* Sets the sticky toolbar to be on top */
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 }
+.md-toolbar-tools{
+    margin-left: auto;
+    padding-right: 30px;
+}
 .example-container {
     position: absolute;
-    top: 60px;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background: #E5E5E5;
   }
   .sidenav{
-    min-width:200px;
-    max-width: 200px;
+    min-width:220px;
+    max-width: 220px;
     padding-top:20px;
     background: #2F4050;
     color:#A7B1C2;
@@ -50,5 +55,13 @@
 }
 
 .avatarUserMenu{
-    
+    width: 100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.nameUserMenu{
+    padding-top:5px;
+    padding-bottom:5px;
+    width:100%;
+    text-align: center;
 }

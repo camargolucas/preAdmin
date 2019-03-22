@@ -1,3 +1,4 @@
+import { Main } from './../../../../.history/src/app/class/main_20190314112749';
 import { StorageService } from './../../services/storage.service';
 import { Usuario } from './../../model/user.model';
 import { LoginService } from '../../services/login.service';
@@ -14,15 +15,21 @@ import {FormControl} from '@angular/forms';
 export class PageHomeComponent implements OnInit {
 
   userLogged:boolean = false;
+  public userTiAdmin:boolean = false;
   usuario:Usuario;
   mode = new FormControl('side');
- 
+   //#######################################################
+  //itemMenu utilizado para manipular os itens do menu
+  itemMenu = 1;
+  //#######################################################
+  
   constructor(
     private titleService:Title,
     private loginService:LoginService, 
     private router: Router,
     private storage:StorageService,
-    private renderer:Renderer
+    private renderer:Renderer,
+    private main:Main
     ) { 
     
     this.userLogged = loginService.checkIfUserIsLogged();
@@ -30,6 +37,7 @@ export class PageHomeComponent implements OnInit {
     if(this.userLogged){
       this.usuario = new Usuario();
       this.usuario = this.storage.getAllDataLoggedUser();
+
     }
 
   }
@@ -39,6 +47,12 @@ export class PageHomeComponent implements OnInit {
     if(!this.userLogged){
         this.router.navigateByUrl('/login');
     }
+
+    if(this.usuario.idCargo == this.main.userAdmin){
+      this.userTiAdmin = true;
+      //Se o usuário é da equipe de Ti ele possui privilégos administrativos
+    }
+    
   }
   signOutUser(){
     if(this.loginService.signOutUser()){
@@ -49,7 +63,11 @@ export class PageHomeComponent implements OnInit {
     this.renderer.setElementClass(event.target,"active",true);
   }
 
-  toggleSidenav(){
+  //#######################################################
+  //Método que altera o valor do id do item clicado no menu
+  addClass(id: any){
+    this.itemMenu = id;
   }
-
+  //#######################################################
+  //#######################################################
 }
