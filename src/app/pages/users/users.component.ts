@@ -1,3 +1,4 @@
+import { BlockUserAccountDialogComponent } from './../admin/block-user-account-dialog/block-user-account-dialog.component';
 import { Usuario } from "src/app/model/user.model";
 import { StorageService } from "../../services/storage.service";
 import { UserService } from "./../../services/user.service";
@@ -95,12 +96,47 @@ export class UsersComponent implements OnInit {
     let secondCut = firstCut + e.pageSize;
     this.activePageDataChunk = this.arrUser.slice(firstCut, secondCut);
   }
+
+
+  blockUser(user: Usuario){
+    this.openDialogBlockUser(user);
+  }
+  openDialogBlockUser(user: Usuario):void{
+   
+    
+    //Nnecessário para atribur valor ao array de filtros
+    const dialogRef = this.dialog.open(BlockUserAccountDialogComponent, {
+      width: "400px",
+      data: {
+        email: user.email,
+        nomeUsuario: user.nomeUsuario,
+        apelidoUsuario: user.apelidoUsuario,
+        loja: user.loja,
+        idUsuario: user.idUsuario,
+        ativo: user.ativo
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      this.arrUserAll = this.storageService.getAllDataUserList();
+      this.arrUser = this.arrUserAll;
+      this.activePageDataChunk = this.arrUserAll.slice(0,this.pageSize);
+
+    });
+  }
+
+
+
+
+
+
   editUser(user: Usuario) {
     this.openDialog(user);
   }
   openDialog(user: Usuario): void {
     //Nnecessário para atribur valor ao array de filtros
-    this.filterData();
+   // this.filterData();
 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: "400px",
@@ -197,7 +233,7 @@ export class DialogOverviewExampleDialog implements OnInit {
   update(user: Usuario) {
     this.updateUser(user).then(ret => {
       if (ret == 1) {
-        this.storageService.updateClient(this.data).then(ret => {
+          this.storageService.updateClient(this.data).then(ret => {
           this.dialogRef.close(ret);
         });
         this.openSnackBar("Alterado com sucesso", "Fechar");

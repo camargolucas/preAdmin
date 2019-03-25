@@ -133,6 +133,19 @@ export class StorageService {
   //###########################################
   //###########################################
   //Controla o Cache da lista dos usuários
+  updateDataUser(user){
+  
+    let arrUser: Array<Usuario> = this.getAllDataUserList();
+
+    for (var i = 0; i < arrUser.length; ++i) {
+      if (arrUser[i]['idUsuario'] === user.idUsuario) {
+        arrUser[i]['ativo'] = user.ativo;
+      }
+    }
+
+    this.insertCacheUsersList(arrUser);
+  
+  }
   insertCacheUsersList(data: any) {
     try {
       localStorage.setItem("dataUsersList", JSON.stringify(data));
@@ -172,9 +185,13 @@ export class StorageService {
   }
   updateClient(user) {
     return new Promise(resolve => {
+
+      console.log("user : " + user.ativo);
+
       let arrUser: Array<Usuario> = this.getAllDataUserList();
 
       let item = arrUser.find(x => x.idUsuario == user.idUsuario);
+
       let index = arrUser.indexOf(item);
 
       arrUser[index] = user;
@@ -182,4 +199,7 @@ export class StorageService {
       resolve(arrUser);
     });
   }
+
+
+
 }

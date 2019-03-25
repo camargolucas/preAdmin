@@ -1,0 +1,11 @@
+
+<p *ngIf="data.ativo == 1">Tem certeza de que deseja bloquear a conta de {{data.nomeUsuario}}?</p>
+<p *ngIf="data.ativo == 0">Tem certeza de que deseja desbloquear a conta de {{data.nomeUsuario}}?</p>
+
+<p><b>Usuário : </b>{{data.apelidoUsuario}}</p>
+<p><b>E-mail : </b>{{data.email}}</p>
+<div class="display_flex">
+  <button mat-raised-button color="primary" (click)="onCloseCancel()">Cancelar</button>
+  <button *ngIf="data.ativo == 1" class="margin_left_auto" mat-raised-button color="warn" (click)="blockUser()">Bloquear</button>
+  <button *ngIf="data.ativo == 0" class="margin_left_auto" mat-raised-button color="warn" (click)="blockUser()">Desbloquear</button>
+</div>

@@ -13,10 +13,10 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput #inputLoja type="number" [(ngModel)]="data.loja" placeholder="Loja" min="1">
-      <mat-hint align="end">{{inputLoja.value?.length || 0}}/5</mat-hint>
     </mat-form-field>
   </div>
 </div>
+
 <div mat-dialog-actions class="btn">
   <button mat-button color="warn" (click)="onNoClick()">Cancelar</button>
   <button mat-raised-button class="btn-salvar" color="primary" (click)="update(data)" cdkFocusInitial>Salvar</button>

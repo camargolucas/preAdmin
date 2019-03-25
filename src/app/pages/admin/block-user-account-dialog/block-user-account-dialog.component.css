@@ -1,0 +1,9 @@
+*:focus {
+    outline: none;
+  }
+.display_flex{
+    display:flex;
+}
+.margin_left_auto{
+    margin-left: auto;
+}

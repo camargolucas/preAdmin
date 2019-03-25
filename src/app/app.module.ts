@@ -55,6 +55,7 @@ import {
 import { EconomicGroupDetailComponent } from './pages/economic-group-detail/economic-group-detail.component';
 import { CreateManagerAccountDialogComponent } from './pages/admin/create-manager-account-dialog/create-manager-account-dialog.component';
 import { CreateUserAccountDialogComponent } from './pages/admin/create-user-account-dialog/create-user-account-dialog.component';
+import { BlockUserAccountDialogComponent } from './pages/admin/block-user-account-dialog/block-user-account-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { CreateUserAccountDialogComponent } from './pages/admin/create-user-acco
     ClientComponent,
     EconomicGroupDetailComponent,
     CreateManagerAccountDialogComponent,
-    CreateUserAccountDialogComponent
+    CreateUserAccountDialogComponent,
+    BlockUserAccountDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -111,7 +113,8 @@ import { CreateUserAccountDialogComponent } from './pages/admin/create-user-acco
   entryComponents: [
     DialogOverviewExampleDialog, 
     CreateManagerAccountDialogComponent,
-    CreateUserAccountDialogComponent
+    CreateUserAccountDialogComponent,
+    BlockUserAccountDialogComponent
   ],
   providers: [
     LoginService,

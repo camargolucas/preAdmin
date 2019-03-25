@@ -115,4 +115,25 @@ export class UserService extends ApiDataService {
   getTotalUsers(){
     return this.storageService.getTotalUsers();
   }
+  blockUser(user: Usuario) {
+    let userData = JSON.stringify(user);
+    return new Promise((resolve, reject) => {
+      return this.http
+        .post(
+          this.API_URL +
+            "admin/user/block/" +
+            encodeURIComponent(userData) +
+            "",
+          this.requestOptions
+        )
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            reject(err);
+          }
+        );
+    });
+  }
 }
