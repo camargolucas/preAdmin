@@ -1,0 +1,72 @@
+<div class="mat-elevation-z8 boxPadrao">
+    <h2>Gerentes</h2>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/home">Painel de controle</a>
+      </li>
+      <li class="breadcrumb-item">
+          <a routerLink="/home/admin">Admin</a>
+        </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/home/managers">Gerentes</a>
+      </li>
+    </ol>
+    <form class="example-form" name="buscarUser">
+        <mat-form-field class="example-full-width">
+          <input class="inputSearchUser" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchName" (ngModelChange)="filterData()" matInput placeholder="Buscar Usuário">
+        </mat-form-field>
+    </form>
+</div>
+
+
+
+
+<table mat-table [dataSource]="activePageDataChunk" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order. The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="NOME" >
+      <th mat-header-cell *matHeaderCellDef>NOME</th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'block-account': element.ativo == 0}">{{ element.nomeUsuario }}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="EMAIL">
+      <th mat-header-cell *matHeaderCellDef>EMAIL</th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'block-account': element.ativo == 0}">{{ element.email }}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="APELIDO">
+      <th mat-header-cell *matHeaderCellDef>APELIDO</th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'block-account': element.ativo == 0}">{{ element.apelidoUsuario }}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="LOJA">
+      <th mat-header-cell *matHeaderCellDef>Loja</th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'block-account': element.ativo == 0}">{{ element.loja }}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="ACTION">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" [ngClass]="{'block-account': element.ativo == 0}">
+  
+        <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editUser(element)"><mat-icon>edit</mat-icon>Editar dados</button>
+          <button *ngIf="element.ativo == 1" mat-menu-item (click)="blockUser(element)"><mat-icon>block</mat-icon>Bloquear Conta</button>
+          <button *ngIf="element.ativo == 0"  mat-menu-item (click)="blockUser(element)"><mat-icon>block</mat-icon>Desbloquear Conta</button>
+        </mat-menu>
+      </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  
+  <div class="mat-elevation-z8">
+    <mat-paginator #paginator [length]="totalItensBusca" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)" showFirstLastButtons></mat-paginator>
+  </div>

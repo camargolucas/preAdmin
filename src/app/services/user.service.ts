@@ -136,4 +136,16 @@ export class UserService extends ApiDataService {
         );
     });
   }
+  getManagers(){
+      return new Promise((resolve, reject) => {
+        this.http.get(this.API_URL + "admin/manager/getAll").subscribe(
+          result => {
+            resolve(result);
+          },
+          error => {
+            reject(error);
+          }
+        );
+      });
+  }
 }

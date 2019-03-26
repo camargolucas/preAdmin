@@ -1,3 +1,4 @@
+import { ManagerComponent } from './pages/admin/manager/manager.component';
 import { StoreComponent } from './pages/store/store.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { StockRequestsComponent } from './pages/stock-requests/stock-requests.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
     { path: 'users', component:  UsersComponent},
+    { path: 'managers', component:  ManagerComponent},
     { path: 'admin', component:  AdminComponent},
     { path: 'gerentes', component:  GerentesComponent}
   ]},

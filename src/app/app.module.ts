@@ -10,10 +10,7 @@ import { PageHomeComponent } from "./pages/page-home/page-home.component";
 import { NavbarDefaultComponent } from "./component/navbar-default/navbar-default.component";
 import { PurchaseComponent } from "./pages/purchase/purchase.component";
 import { StockRequestsComponent } from "./pages/stock-requests/stock-requests.component";
-import {
-  UsersComponent,
-  DialogOverviewExampleDialog
-} from "./pages/users/users.component";
+import {UsersComponent} from "./pages/users/users.component";
 import { AdminComponent } from "./pages/admin/admin.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
@@ -56,6 +53,8 @@ import { EconomicGroupDetailComponent } from './pages/economic-group-detail/econ
 import { CreateManagerAccountDialogComponent } from './pages/admin/create-manager-account-dialog/create-manager-account-dialog.component';
 import { CreateUserAccountDialogComponent } from './pages/admin/create-user-account-dialog/create-user-account-dialog.component';
 import { BlockUserAccountDialogComponent } from './pages/admin/block-user-account-dialog/block-user-account-dialog.component';
+import { ManagerComponent } from './pages/admin/manager/manager.component';
+import { EditUserAccountDialogComponent } from './pages/admin/edit-user-account-dialog/edit-user-account-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +67,6 @@ import { BlockUserAccountDialogComponent } from './pages/admin/block-user-accoun
     LoginComponent,
     DashboardComponent,
     PageNotFoundComponentComponent,
-    DialogOverviewExampleDialog,
     UserFilterPipe,
     StoreComponent,
     GerentesComponent,
@@ -77,7 +75,9 @@ import { BlockUserAccountDialogComponent } from './pages/admin/block-user-accoun
     EconomicGroupDetailComponent,
     CreateManagerAccountDialogComponent,
     CreateUserAccountDialogComponent,
-    BlockUserAccountDialogComponent
+    BlockUserAccountDialogComponent,
+    ManagerComponent,
+    EditUserAccountDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -111,10 +111,10 @@ import { BlockUserAccountDialogComponent } from './pages/admin/block-user-accoun
 
   ],
   entryComponents: [
-    DialogOverviewExampleDialog, 
     CreateManagerAccountDialogComponent,
     CreateUserAccountDialogComponent,
-    BlockUserAccountDialogComponent
+    BlockUserAccountDialogComponent,
+    EditUserAccountDialogComponent
   ],
   providers: [
     LoginService,

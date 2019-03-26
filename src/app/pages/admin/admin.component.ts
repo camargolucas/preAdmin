@@ -30,10 +30,13 @@ export interface DialogData {
 export class AdminComponent implements OnInit {
   
   usuario: Usuario; //Objeto usuário
+  manager: any;
   email: string = "";
+  
   public shouldShow = false;
-  animal: string;
+
   name: string;
+  
   totalUsers:any = 0;
   totalManager:any = 0;
 
@@ -44,16 +47,30 @@ export class AdminComponent implements OnInit {
     public service: UserService,
     private snackBar: MatSnackBar,
     ) {
+    this.manager = new Usuario();
     this.usuario = new Usuario(); //Obtém a instância do Objeto Usuário
     this.usuario = this.storage.getAllDataLoggedUser(); //Busca os dados do usuário no Storage
+    this.manager = this.storage.getManagerList();
+    this.totalManager = this.storage.getTotalManagerList();
+    
     this.totalUsers = service.getTotalUsers();
   }
 
   ngOnInit() {
+    this.service.getManagers();
     //Verifica o cargo do usuário para permitir ou não o
     if (this.usuario.idCargo != 3) {
       this.router.navigateByUrl("/home");
     }
+
+    this.service.getManagers().then(result => {
+      this.storage.insertCacheManagerList(result);
+      if(this.manager == null || this.manager == undefined){
+        this.manager = result;
+        this.totalManager = this.storage.getTotalManagerList();
+      }
+
+    });
   }
   createNewManagerAccount():void{
     let dialogRef = this.dialog.open(CreateManagerAccountDialogComponent, {

@@ -179,6 +179,8 @@ export class StorageService {
   //###########################################
   //###########################################
 
+  //###########################################
+  //###########################################
   getTotalClient() {
     let arr = this.getAllClientList();
     return arr.length;
@@ -186,20 +188,71 @@ export class StorageService {
   updateClient(user) {
     return new Promise(resolve => {
 
-      console.log("user : " + user.ativo);
+      
 
-      let arrUser: Array<Usuario> = this.getAllDataUserList();
 
-      let item = arrUser.find(x => x.idUsuario == user.idUsuario);
+      if(user.idCargo == 1){
+        
+        console.log("user.idCargo : 1 : " + user.idCargo);
 
-      let index = arrUser.indexOf(item);
+        let arrUser: Array<Usuario> = this.getAllDataUserList();
 
-      arrUser[index] = user;
+        for (var i = 0; i < arrUser.length; ++i) {
+          if (arrUser[i]['idUsuario'] === user.idUsuario) {
+            arrUser[i]['email'] = user.email;
+            arrUser[i]['nomeUsuario'] = user.nomeUsuario;
+            arrUser[i]['apelidoUsuario'] = user.apelidoUsuario;
+            arrUser[i]['loja'] = user.loja;
+            arrUser[i]['ativo'] = user.ativo;
+          }
+        }
+    
+        this.insertCacheUsersList(arrUser);
 
-      resolve(arrUser);
+        resolve(arrUser);
+      }else{
+        console.log("user.idCargo : 2 : " + user.idCargo);
+        let arrUser: Array<Usuario> = this.getManagerList();
+
+        for (var i = 0; i < arrUser.length; ++i) {
+          if (arrUser[i]['idUsuario'] === user.idUsuario) {
+            arrUser[i]['email'] = user.email;
+            arrUser[i]['nomeUsuario'] = user.nomeUsuario;
+            arrUser[i]['apelidoUsuario'] = user.apelidoUsuario;
+            arrUser[i]['loja'] = user.loja;
+            arrUser[i]['ativo'] = user.ativo;
+          }
+        }
+        this.insertCacheManagerList(arrUser);
+        resolve(arrUser);
+      }
     });
   }
+  //###########################################
+  //###########################################
 
+  getTotalManagerList(){
+    try {
+      let arr = this.getManagerList();
+      return arr.length;
+    } catch (error) {
+      return 0;
+    }
 
+  }
+  getManagerList(){
+    return JSON.parse(localStorage.getItem("dataManagerList"));
+  }
+  insertCacheManagerList(data: any){
+    try {
+      localStorage.setItem("dataManagerList", JSON.stringify(data));
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    } 
+  }
+  //###########################################
+  //###########################################
 
 }

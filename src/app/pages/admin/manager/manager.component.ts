@@ -1,12 +1,11 @@
-import { BlockUserAccountDialogComponent } from './../admin/block-user-account-dialog/block-user-account-dialog.component';
+import { BlockUserAccountDialogComponent } from './../../admin/block-user-account-dialog/block-user-account-dialog.component';
 import { Usuario } from "src/app/model/user.model";
-import { StorageService } from "../../services/storage.service";
-import { UserService } from "./../../services/user.service";
+import { StorageService } from "../../../services/storage.service";
+import { UserService } from "./../../../services/user.service";
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
 import { FormControl, Validators } from "@angular/forms";
 import {PageEvent} from '@angular/material';
-
 import {
   MatPaginator,
   MatDialog,
@@ -14,15 +13,14 @@ import {
   MAT_DIALOG_DATA,
   MatFormField
 } from "@angular/material";
-import { EditUserAccountDialogComponent } from '../admin/edit-user-account-dialog/edit-user-account-dialog.component';
+import { EditUserAccountDialogComponent } from '../edit-user-account-dialog/edit-user-account-dialog.component';
 
 @Component({
-  selector: "app-users",
-  templateUrl: "./users.component.html",
-  styleUrls: ["./users.component.css"]
+  selector: 'app-manager',
+  templateUrl: './manager.component.html',
+  styleUrls: ['./manager.component.css']
 })
-export class UsersComponent implements OnInit {
-
+export class ManagerComponent implements OnInit {
 
   arrUser;
   arrUserAll;
@@ -35,13 +33,13 @@ export class UsersComponent implements OnInit {
   totalItensBusca:number;
   //#######################################################
 
-    // MatPaginator Inputs
-    pageSize = 10;
-    pageSizeOptions: number[] = [10];
-    // MatPaginator Output
-    pageEvent: PageEvent;
-    activePageDataChunk = []
-    displayedColumns: string[] = ['NOME', 'EMAIL', 'APELIDO', 'LOJA', 'ACTION'];
+  // MatPaginator Inputs
+  pageSize = 10;
+  pageSizeOptions: number[] = [10];
+  // MatPaginator Output
+  pageEvent: PageEvent;
+  activePageDataChunk = []
+  displayedColumns: string[] = ['NOME', 'EMAIL', 'APELIDO', 'LOJA', 'ACTION'];
  
   public user: Usuario;
 
@@ -52,14 +50,13 @@ export class UsersComponent implements OnInit {
     public service: UserService,
     private snackBar: MatSnackBar,
     public storageService: StorageService
-  ) {
+  ) { 
     this.user = new Usuario();
-    
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     //primeiro buscamos dados no cache local para pré exibir os dados
-    this.arrUser = this.storageService.getAllDataUserList();
+    this.arrUser = this.storageService.getManagerList();
     this.arrUserAll = this.arrUser;
     //os dados são buscados no servidor e após receber a resposta os dados na tela
     //e o cache são atualizados.
@@ -73,17 +70,12 @@ export class UsersComponent implements OnInit {
     }catch(e){
     }
 
-    await this.service.getUsers().then(result => {
-
-      this.storageService.insertCacheUsersList(result);
-
+    this.service.getManagers().then(result => {
+      this.storageService.insertCacheManagerList(result);
       if(this.arrUser == null || this.arrUser == undefined){
         this.arrUser = result;
       }
-
     });
-
-  
   }
 
 
@@ -91,24 +83,20 @@ export class UsersComponent implements OnInit {
     this.arrUser = this.arrUserAll.filter(data => {
       return data.apelidoUsuario.toLowerCase().startsWith(this.searchName.toLowerCase());
     });
+    
     this.totalItensBusca = this.arrUser.length;
     this.activePageDataChunk = this.arrUser.slice(0,this.pageSize);
   }
 
-
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
-
-
   onPageChanged(e) {
     this.pageIndex = e;
     let firstCut = e.pageIndex * e.pageSize;
     let secondCut = firstCut + e.pageSize;
     this.activePageDataChunk = this.arrUser.slice(firstCut, secondCut);
-    
   }
-
   changePage(){
     try {
       let firstCut = this.pageIndex.pageIndex * this.pageIndex.pageSize;
@@ -120,7 +108,6 @@ export class UsersComponent implements OnInit {
     }
 
   }
-
   blockUser(user: Usuario){
     this.openDialogBlockUser(user);
   }
@@ -137,13 +124,13 @@ export class UsersComponent implements OnInit {
         loja: user.loja,
         idUsuario: user.idUsuario,
         ativo: user.ativo,
-        idCargo: 1
+        idCargo: 2
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
 
-      this.arrUserAll = this.storageService.getAllDataUserList();
+      this.arrUserAll = this.storageService.getManagerList();
       this.arrUser = this.arrUserAll;
       
       this.activePageDataChunk = this.arrUserAll.slice(0,this.pageSize);
@@ -153,19 +140,13 @@ export class UsersComponent implements OnInit {
 
     });
   }
-
-
-
-
-
-
   editUser(user: Usuario) {
-    this.openDialog(user);
+    this.editUserOpenDialog(user);
   }
-  openDialog(user: Usuario): void {
-    //Nnecessário para atribur valor ao array de filtros
-   // this.filterData();
 
+
+  editUserOpenDialog(user: Usuario): void {
+    //Necessário para atribur valor ao array de filtros
     const dialogRef = this.dialog.open(EditUserAccountDialogComponent, {
       width: "400px",
       data: {
@@ -175,16 +156,26 @@ export class UsersComponent implements OnInit {
         loja: user.loja,
         idUsuario: user.idUsuario,
         ativo: user.ativo,
-        idCargo: 1
+        idCargo: 2
       }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.arrUserAll = this.storageService.getAllDataUserList();
+
+      this.arrUserAll = this.storageService.getManagerList();
       this.arrUser = this.arrUserAll;
+
+      console.log(this.arrUserAll);
+      
       this.activePageDataChunk = this.arrUserAll.slice(0,this.pageSize);
       this.filterData();
       this.changePage();
+
     });
   }
+
+
+
+
+
 }

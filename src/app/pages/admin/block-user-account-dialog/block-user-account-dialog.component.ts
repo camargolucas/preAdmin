@@ -46,7 +46,8 @@ export class BlockUserAccountDialogComponent implements OnInit {
           this.openSnackBar("Usuário Desbloqueado", "Fechar");
         }
 
-        this.storageService.updateDataUser(this.data);
+        this.storageService.updateClient(this.data);
+        
         this.onCloseCancel();
 
       } else {
