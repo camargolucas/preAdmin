@@ -1,0 +1,148 @@
+.dataResponsiveGridComponent{
+
+}
+.dataResponsiveGridBody{
+    overflow-y: auto;
+    display: flex;
+}
+.dataResponsiveGrid{
+    padding: 14px;
+    background:#FFFFFF;
+    padding-bottom:0px;
+    
+}
+.dataResponsiveGrid{
+    padding-top:0px;
+}
+.titleSmallGrid{
+    margin-left:auto;
+}
+.titleSmallGrid span{
+    font-weight: bold;
+ }
+ .dataResponsiveGridHeader{
+    display: flex;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom:10px;
+}
+.titleBigGrid{
+    font-size: 24px;
+    font-weight: bold;
+}
+.dataResponsiveGridShow{
+    background:#e6e6e6;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.dataResponsiveGridBottom{
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    padding: 10px;
+    background:#FFFFFF;
+}
+.dataBottomItem{
+    width:16.666666%
+}
+.dataBottomItemContent{
+    background: #e6e6e6;
+    border-radius: 5px;
+    margin:5px;
+    padding:10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dataBottomItemLabel{
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-left:5px;
+    padding-right: 5px;
+    height:20px;
+    overflow: hidden;
+    text-align: center;
+}
+.dataBottomItemContentHhighlight{
+    font-weight: bold;
+    color:rgb(45, 139, 194);
+}
+.cellBorderRight{
+    border-right: 1px solid #CCCCCC;
+}
+.cellBorderLeft{
+    border-left: 1px solid #CCCCCC;
+}
+.cellBorderBottom{
+    border-bottom: 1px solid #CCCCCC;
+}
+.dataResponsiveGridTableHeader{
+    display: flex;
+    max-width: 460px;
+    height:35px;
+    border: 1px solid #CCCCCC;
+    background:#f1f1f1;
+    border-radius: 4px 4px 0px 0px;
+    font-weight: bold;
+}
+.dataResponsiveGridTableHeaderRight{
+    display: flex;
+    height:35px;
+    border: 1px solid #CCCCCC;
+    background:#f1f1f1;
+    border-radius: 4px 4px 0px 0px;
+    font-weight: bold;
+    
+}
+.dataResponsiveGridTableHeaderCell{
+    padding:5px;
+    width:20%;
+}
+.dataResponsiveGridShowLeft{
+    max-width: 460px;
+    width: 460px;
+}
+.dataResponsiveGridTableData{
+    display:flex;
+    direction: ltr;
+}
+
+.gridTableDataLeftContainer{
+
+}
+.gridTableDataLeftContainer::-webkit-scrollbar { 
+    
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 645px) {
+    .dataResponsiveGridBottom{
+        display: block;
+        position: initial;
+        box-shadow: -1px 1px 0px 0px rgba(0, 0, 0, 0), 0 8px 10px 1px rgba(0, 0, 0, 0), 0 3px 14px 2px rgba(0,0,0,.12);
+    }
+    .dataBottomItem{
+        width:initial;
+    }
+    .dataBottomItem{
+        border:1px solid #e6e6e6;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    .dataBottomItemLabel{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        height: 25px;
+    }
+    
+}

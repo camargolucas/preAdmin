@@ -126,7 +126,6 @@ export class UsersComponent implements OnInit {
   }
   openDialogBlockUser(user: Usuario):void{
    
-    
     //Necessário para atribur valor ao array de filtros
     const dialogRef = this.dialog.open(BlockUserAccountDialogComponent, {
       width: "400px",

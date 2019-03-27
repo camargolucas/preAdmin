@@ -133,7 +133,7 @@ export class EconomicGroupComponent implements OnInit {
   }
 
   goDetails(id:any){
-    this.router.navigate(['home/economic-group/'+id]);
+    this.router.navigate(['home/ListRequestsGrid/'+id]);
   }
 
 }

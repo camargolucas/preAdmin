@@ -55,6 +55,7 @@ import { CreateUserAccountDialogComponent } from './pages/admin/create-user-acco
 import { BlockUserAccountDialogComponent } from './pages/admin/block-user-account-dialog/block-user-account-dialog.component';
 import { ManagerComponent } from './pages/admin/manager/manager.component';
 import { EditUserAccountDialogComponent } from './pages/admin/edit-user-account-dialog/edit-user-account-dialog.component';
+import { ListRequestsGridComponent } from './pages/list-requests-grid/list-requests-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,8 @@ import { EditUserAccountDialogComponent } from './pages/admin/edit-user-account-
     CreateUserAccountDialogComponent,
     BlockUserAccountDialogComponent,
     ManagerComponent,
-    EditUserAccountDialogComponent
+    EditUserAccountDialogComponent,
+    ListRequestsGridComponent
   ],
   imports: [
     BrowserModule,

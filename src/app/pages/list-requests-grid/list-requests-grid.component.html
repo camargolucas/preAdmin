@@ -1,0 +1,128 @@
+
+<div class="dataResponsiveGridComponent" (window:resize)="onResize($event)">
+
+<div id="dataResponsiveGrid" class="dataResponsiveGrid mat-elevation-z8">
+  <div class="dataResponsiveGridHeader">
+    <div class="titleBigGrid">
+        Nome Loja
+    </div>
+    <div class="titleSmallGrid">
+      <span>Data de entrega</span>
+      <br>
+      <p>08/03/2019</p>
+    </div>
+  </div>
+
+  <div class="dataResponsiveGridTableHeader">
+      <div class="dataResponsiveGridTableHeaderCell cellBorderRight">
+        Cód Prod.
+      </div>
+      <div class="dataResponsiveGridTableHeaderCell cellBorderRight">
+          Status
+      </div>
+      <div class="dataResponsiveGridTableHeaderCell cellBorderRight">
+          Produto
+      </div>
+      <div class="dataResponsiveGridTableHeaderCell ">
+          Emb.
+      </div>
+      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft ">
+          Peso.
+      </div>
+  </div>
+
+
+</div>
+
+<div class="dataResponsiveGrid dataResponsiveGridBody" [style.height.px]="dataResponsiveGridBodyHeight">
+
+    <div class="dataResponsiveGridShowLeft">
+
+
+        <div class="gridTableDataLeftContainer">
+          <div class="dataResponsiveGridTableData" *ngFor="let data of dataArrGrid">
+              
+              <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom">
+                  {{data}}
+              </div>
+              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderLeft cellBorderBottom">
+                  1
+              </div>
+              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderBottom">
+                  1
+              </div>
+              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderBottom">
+                  1
+              </div>
+              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderBottom">
+                  1
+              </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="dataResponsiveGridShowRight" [style.width.px]="dataResponsiveGridBodyWidth">
+        
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="dataResponsiveGridBottom mat-elevation-z8">
+    <div class="dataBottomItem">
+      <div class="dataBottomItemLabel">Total Volumes</div>
+      <div class="dataBottomItemContent">
+        4386
+      </div>
+    </div>
+
+    <div class="dataBottomItem">
+        <div class="dataBottomItemLabel">Valor total venda</div>
+        <div class="dataBottomItemContent">
+            R$81.868.44
+        </div>
+      </div>
+
+      <div class="dataBottomItem">
+          <div class="dataBottomItemLabel">Valor total venda c/desc</div>
+          <div class="dataBottomItemContent">
+              R$81.868.44
+          </div>
+      </div>
+
+      <div class="dataBottomItem">
+          <div class="dataBottomItemLabel">Valor total compra</div>
+          <div class="dataBottomItemContent">
+              R$81.868.44
+          </div>
+      </div>
+      <div class="dataBottomItem">
+          <div class="dataBottomItemLabel">Resultado</div>
+          <div class="dataBottomItemContent dataBottomItemContentHhighlight">
+              R$81.868.44
+          </div>
+      </div>
+
+      <div class="dataBottomItem">
+          <div class="dataBottomItemLabel">Margem %</div>
+          <div class="dataBottomItemContent dataBottomItemContentHhighlight">
+            10%
+          </div>
+      </div>
+  </div>
+</div>

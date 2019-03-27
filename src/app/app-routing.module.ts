@@ -14,6 +14,7 @@ import { GerentesComponent } from './pages/gerentes/gerentes.component';
 import { EconomicGroupComponent } from './pages/economic-group/economic-group.component';
 import { ClientComponent } from './pages/client/client.component';
 import { EconomicGroupDetailComponent } from './pages/economic-group-detail/economic-group-detail.component';
+import { ListRequestsGridComponent } from './pages/list-requests-grid/list-requests-grid.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -26,13 +27,14 @@ const routes: Routes = [
     { path: 'store', component:  StoreComponent},
     { path: 'purchase', component:  PurchaseComponent},
     { path: 'stockRequests', component:  StockRequestsComponent},
+    { path: 'ListRequestsGrid/:id', component:  ListRequestsGridComponent},
     { path: 'users', component:  UsersComponent},
     { path: 'managers', component:  ManagerComponent},
     { path: 'admin', component:  AdminComponent},
     { path: 'gerentes', component:  GerentesComponent}
   ]},
   { path: 'login', component:  LoginComponent},
-  { path: '**', component: PageNotFoundComponentComponent }
+  { path: '**', component: PageNotFoundComponentComponent },
 ];
 
 @NgModule({

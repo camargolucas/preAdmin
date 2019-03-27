@@ -102,6 +102,7 @@ export class EconomicGroupDetailComponent implements OnInit {
     //variável que recebe o total de itens do resultado de busca
     //necessário para controlar e exibir mensagem de resultado
     //não encontrado
+    
     try{
       this.totalItensBusca = this.arrEconomicGroupClient.length;
     }catch(e){
@@ -187,7 +188,9 @@ export class EconomicGroupDetailComponent implements OnInit {
 
 
 
-
+  goDetails(id:any){
+    this.router.navigate(['home/stockRequests/'+id]);
+  }
 
 
 }

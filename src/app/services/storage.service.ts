@@ -102,7 +102,6 @@ export class StorageService {
     }
 
   }
-
   getEconomicGroupById(id:any){
     let arrData = this.getAllDataEconomicGroup();
 
@@ -114,7 +113,6 @@ export class StorageService {
       return null;
     }
   }
-
   getEconomicGroupNameById(id:any){
 
     let arrData = this.getEconomicGroupById(id);
@@ -188,12 +186,7 @@ export class StorageService {
   updateClient(user) {
     return new Promise(resolve => {
 
-      
-
-
       if(user.idCargo == 1){
-        
-        console.log("user.idCargo : 1 : " + user.idCargo);
 
         let arrUser: Array<Usuario> = this.getAllDataUserList();
 
@@ -211,7 +204,7 @@ export class StorageService {
 
         resolve(arrUser);
       }else{
-        console.log("user.idCargo : 2 : " + user.idCargo);
+  
         let arrUser: Array<Usuario> = this.getManagerList();
 
         for (var i = 0; i < arrUser.length; ++i) {
@@ -230,7 +223,6 @@ export class StorageService {
   }
   //###########################################
   //###########################################
-
   getTotalManagerList(){
     try {
       let arr = this.getManagerList();
@@ -255,4 +247,29 @@ export class StorageService {
   //###########################################
   //###########################################
 
+
+    //###########################################
+  //###########################################
+  getTotalStockList(){
+    try {
+      let arr = this.getManagerList();
+      return arr.length;
+    } catch (error) {
+      return 0;
+    }
+  }
+  getStockList(){
+    return JSON.parse(localStorage.getItem("dataStockList"));
+  }
+  insertCacheStockList(data: any){
+    try {
+      localStorage.setItem("dataStockList", JSON.stringify(data));
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    } 
+  }
+  //###########################################
+  //###########################################
 }
