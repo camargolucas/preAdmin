@@ -13,77 +13,89 @@
     </div>
   </div>
 
+
+<div class="dataResponsiveGridTableHeaderComponent">
   <div class="dataResponsiveGridTableHeader">
-      <div class="dataResponsiveGridTableHeaderCell cellBorderRight">
+      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
         Cód Prod.
       </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderRight">
+      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
           Status
       </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderRight">
+      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
           Produto
       </div>
-      <div class="dataResponsiveGridTableHeaderCell ">
+      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
           Emb.
       </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft ">
+      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
           Peso.
       </div>
   </div>
 
+  <div class="dataResponsiveGridTableHeaderRight">
+
+    <div class="dataResponsiveGridTableHeaderRightBody" id="dataResponsiveGridShowRight">
+
+       <div *ngFor="let data of dataArrGridColum; let i=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+          Loja {{i+1}}.
+        </div>
+
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+         
+        </div>
+
+
+
+    </div>
+  </div>
+
+</div>
 
 </div>
 
 <div class="dataResponsiveGrid dataResponsiveGridBody" [style.height.px]="dataResponsiveGridBodyHeight">
+    <div class="dataResponsiveGridShowLeft" >
+        <div class="gridTableDataLeftContainer" id="gridTableDataLeftContainer">
 
-    <div class="dataResponsiveGridShowLeft">
-
-
-        <div class="gridTableDataLeftContainer">
-          <div class="dataResponsiveGridTableData" *ngFor="let data of dataArrGrid">
+          <div [ngClass]="{'highlightRow': selectedRow == i}" (click)="highlightRow(i)"   id="r_{{i}}" class="dataResponsiveGridTableData" *ngFor="let data of dataArrGrid; let i=index">
               
-              <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom">
+            <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                   {{data}}
               </div>
-              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderLeft cellBorderBottom">
-                  1
+              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data}}
               </div>
-              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderBottom">
-                  1
+              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data}}
               </div>
-              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderBottom">
-                  1
+              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data}}
               </div>
-              <div class="dataResponsiveGridTableHeaderCell cellBorderRight cellBorderBottom">
-                  1
+              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data}}
               </div>
+
           </div>
+          <div class="dataResponsiveGridShowLeftBottomAjust"></div>
         </div>
-
     </div>
 
-    <div class="dataResponsiveGridShowRight" [style.width.px]="dataResponsiveGridBodyWidth">
-        
+    <div id="dataResponsiveGridShowRightHeight" class="dataResponsiveGridShowRight" (scroll)="onScroll($event)">
+      <div class="gridTableDataRightContainer">
+          <div (click)="highlightRow(i)" [ngClass]="{'highlightRow': selectedRow == i}" class="dataResponsiveGridTableData" *ngFor="let data of dataArrGrid; let i=index">
+              
+            <div *ngFor="let dataArr of dataArrGridColum; let j=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data}}
+            </div>
 
+          </div>
+      </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 
-<div class="dataResponsiveGridBottom mat-elevation-z8">
+<div class="dataResponsiveGridBottom mat-elevation-z8-mod">
     <div class="dataBottomItem">
       <div class="dataBottomItemLabel">Total Volumes</div>
       <div class="dataBottomItemContent">
