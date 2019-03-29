@@ -16,21 +16,37 @@
 
 <div class="dataResponsiveGridTableHeaderComponent">
   <div class="dataResponsiveGridTableHeader">
-      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-        Cód Prod.
+
+      <div (click)="orderDataArrGrid('id')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        Cód.
+        <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'id'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'id'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
       </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-          Status
+
+      <div (click)="orderDataArrGrid('status')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        Status
+        <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'status'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'status'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
       </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-          Produto
+
+
+      <div (click)="orderDataArrGrid('nome')" class="headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        Produto
+        <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'nome'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'nome'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
       </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+
+      <div (click)="orderDataArrGrid('unidmedida')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
           Emb.
-      </div>
-      <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-          Peso.
-      </div>
+          <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'unidmedida'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+          <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'unidmedida'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
+        </div>
+
+        <div (click)="orderDataArrGrid('peso')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+            Peso
+            <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'peso'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+            <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'peso'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
+          </div>
   </div>
 
   <div class="dataResponsiveGridTableHeaderRight">
@@ -79,22 +95,21 @@
 
           <div [ngClass]="{'highlightRow': selectedRow == i}" (click)="highlightRow(i)"   id="r_{{i}}" class="dataResponsiveGridTableData" *ngFor="let data of dataArrGrid; let i=index">
               
-            <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data}}
+            <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data.id}}
+              </div>
+              <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  <div [ngClass]="{'produtoStatusEvidencia': data.status == 1, 'produtoStatusEmFalta':data.status == 2, 'produtoStatusEntreSafra':data.status == 3, 'produtoStatusNeutro':data.status == 4}"></div>
               </div>
               <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data}}
+                  {{data.nome}}
               </div>
-              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data}}
+              <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data.unidmedida}}
               </div>
-              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data}}
+              <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{data.peso}}
               </div>
-              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data}}
-              </div>
-
           </div>
           <div class="dataResponsiveGridShowLeftBottomAjust"></div>
         </div>
@@ -102,10 +117,10 @@
 
     <div id="dataResponsiveGridShowRightHeight" class="dataResponsiveGridShowRight" (scroll)="onScroll($event)">
       <div class="gridTableDataRightContainer">
-          <div (click)="highlightRow(i)" [ngClass]="{'highlightRow': selectedRow == i}" class="dataResponsiveGridTableData" *ngFor="let data of dataArrGrid; let i=index">
-              
+          <div *ngFor="let data of dataArrGrid; let i=index" (click)="highlightRow(i)" [ngClass]="{'highlightRow': selectedRow == i}" class="dataResponsiveGridTableData" >
+
             <div *ngFor="let dataArr of dataArrGridColum; let j=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data}}
+                  {{data.id}}
             </div>
 
 
