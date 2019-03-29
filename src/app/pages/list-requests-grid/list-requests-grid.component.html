@@ -37,42 +37,42 @@
       </div>
 
       <div (click)="orderDataArrGrid('unidmedida')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-          Emb.
-          <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'unidmedida'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
-          <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'unidmedida'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
-        </div>
+        Emb.
+        <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'unidmedida'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'unidmedida'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
+      </div>
 
-        <div (click)="orderDataArrGrid('peso')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-            Peso
-            <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'peso'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
-            <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'peso'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
-          </div>
+      <div (click)="orderDataArrGrid('peso')" class="smallCell headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        Peso
+        <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'peso'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'peso'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
+      </div>
   </div>
 
   <div class="dataResponsiveGridTableHeaderRight">
 
     <div class="dataResponsiveGridTableHeaderRightBody" id="dataResponsiveGridShowRight">
 
-       <div *ngFor="let data of dataArrGridColum; let i=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+       <div (click)="orderDataArrGrid(i)" *ngFor="let data of dataArrGridColum; let i=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
           Loja {{i+1}}.
         </div>
 
-        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('total')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Total
         </div>
-        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoVendaCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Preço Venda / Caixa
         </div>
-        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoUnitarioCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Preço Unitário / Caixa
         </div>
-        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoFornecedorCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Fornecedor
         </div>
-        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoCustoCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Preço custo / Caixa
         </div>
-        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoMargemCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
            Margem(%)
         </div>
 
@@ -101,7 +101,7 @@
               <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                   <div [ngClass]="{'produtoStatusEvidencia': data.status == 1, 'produtoStatusEmFalta':data.status == 2, 'produtoStatusEntreSafra':data.status == 3, 'produtoStatusNeutro':data.status == 4}"></div>
               </div>
-              <div (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+              <div matTooltip="{{data.nome}}" [matTooltipPosition]="position.value" (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                   {{data.nome}}
               </div>
               <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
@@ -119,13 +119,12 @@
       <div class="gridTableDataRightContainer">
           <div *ngFor="let data of dataArrGrid; let i=index" (click)="highlightRow(i)" [ngClass]="{'highlightRow': selectedRow == i}" class="dataResponsiveGridTableData" >
 
-            <div *ngFor="let dataArr of dataArrGridColum; let j=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{data.id}}
+            <div *ngFor="let dataArr of data.lojas; let j=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  {{dataArr}}
             </div>
 
-
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                Total
+                {{getTotalItens(i)}}
             </div>
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                 Preço Venda / Caixa

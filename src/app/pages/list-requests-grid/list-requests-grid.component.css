@@ -150,7 +150,7 @@ height:0px;
 .gridTableDataLeftContainer{
     overflow-y: hidden;
     height: 100%;
-
+    max-width: 380px;
 }
 .gridTableDataLeftContainer::-webkit-scrollbar{
     width:0px;

@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-
+import {FormControl} from '@angular/forms';
+import {TooltipPosition} from '@angular/material';
 @Component({
   selector: 'app-list-requests-grid',
   templateUrl: './list-requests-grid.component.html',
@@ -7,6 +8,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class ListRequestsGridComponent implements OnInit {
 
+  positionOptions: TooltipPosition[] = ['after'];
+  position = new FormControl(this.positionOptions[0]);
   //####################################################
   //Controle de altura do componente de listagem central
   screenHeight:number;
@@ -25,28 +28,45 @@ export class ListRequestsGridComponent implements OnInit {
   arrOrder = "DESC";
   tabarrOrderSelected = "";
 
+
+  //Elementos das Colunas
+
+  dataArrGridColum = [
+    {
+      "loja": '1',
+      "qtd":[1,15,6,87,918,39]
+    },
+    {
+      "loja": '2',
+      "qtd":[199,815,6,87,98,39]
+    }
+  ];
+
   dataArrGrid = [
       {
         "id":1,
-        "nome":"A abacate 1",
+        "nome":"A abacate 1 A abacate 1 A abacate 1",
         "status":1,
         "tipo":"F",
         "unidmedida":"Unidade",
-        "peso":"18,00"
+        "peso":"18,00",
+        "lojas":[5,6]
       },{
         "id":2,
         "nome":"B abacate 2",
         "status":2,
         "tipo":"F",
         "unidmedida":"Kilo",
-        "peso":"16,00"
+        "peso":"16,00",
+        "lojas":[15,62]
       },{
         "id":3,
         "nome":"C abacate 3",
         "status":3,
         "tipo":"F",
         "unidmedida":"Bandeja",
-        "peso":"15,00"
+        "peso":"15,00",
+        "lojas":[53,76]
       },
       {
         "id":4,
@@ -54,7 +74,8 @@ export class ListRequestsGridComponent implements OnInit {
         "status":4,
         "tipo":"F",
         "unidmedida":"Unidade",
-        "peso":"14,00"
+        "peso":"14,00",
+        "lojas":[85,60]
       },
       {
         "id":5,
@@ -62,50 +83,11 @@ export class ListRequestsGridComponent implements OnInit {
         "status":1,
         "tipo":"F",
         "unidmedida":"Unidade",
-        "peso":"13,00"
-      },
-      {
-        "id":6,
-        "nome":"F abacate 6",
-        "status":2,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"28,00"
-      },
-      {
-        "id":7,
-        "nome":"G abacate 7",
-        "status":3,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"100,00"
-      },
-      {
-        "id":8,
-        "nome":"H abacate 8",
-        "status":4,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"7,00"
-      },
-      {
-        "id":9,
-        "nome":"I abacate 9",
-        "status":1,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"54,00"
-      },
-      {
-        "id":10,
-        "nome":"J abacate 10",
-        "status":2,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"167,00"
+        "peso":"13,00",
+        "lojas":[75,68]
       }
   ];
-  dataArrGridColum = [1,2,3,4,5,6,7,8,9,10];
+
   //####################################################
 
   //####################################################
@@ -132,6 +114,8 @@ export class ListRequestsGridComponent implements OnInit {
     this.valorTotalCompra = 3.500;
     this.resultado = 4000;
     this.margem = '3%';
+
+    //console.log("dataArrGrid : " + this.dataArrGrid[0].lojas[0].qtd);
   }
 
   onResize(event) {
@@ -160,6 +144,8 @@ export class ListRequestsGridComponent implements OnInit {
       this.selectedRow = row;
     }
     orderDataArrGrid(attribute:any){
+
+      console.log("attribute : " + attribute);
 
       this.setTabarrOrderSelected(attribute);
       
@@ -193,4 +179,13 @@ export class ListRequestsGridComponent implements OnInit {
   }
 
 
+  getTotalItens(index:any){
+
+    let total = 0;
+    for(let i = 0; i< this.dataArrGrid[index].lojas.length;i++){
+      total = total + this.dataArrGrid[index].lojas[i];
+    }
+
+    return total;
+  }
 }

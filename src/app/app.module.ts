@@ -39,7 +39,8 @@ import {
   MatToolbarModule,
   MatSidenavModule,
   MatRippleModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTooltipModule
   
 } from "@angular/material";
 import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
@@ -109,7 +110,8 @@ import { ListRequestsGridComponent } from './pages/list-requests-grid/list-reque
     MatIconModule,
     MatSidenavModule,
     MatRippleModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTooltipModule
 
   ],
   entryComponents: [
