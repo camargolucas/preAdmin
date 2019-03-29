@@ -84,7 +84,7 @@
 }
 .dataResponsiveGridTableHeader{
     display: flex;
-    height:35px;
+    height:32px;
     background:#f1f1f1;
     font-weight: bold;
     max-width: 500px;
@@ -93,7 +93,7 @@
 }
 .dataResponsiveGridTableHeaderRight{
     display: flex;
-    height:35px;
+    height:32px;
     background:#f1f1f1;
     font-weight: bold;
     width:100%;
@@ -103,6 +103,8 @@
     width:100px;
     min-width:100px;
     font-size: 14px;
+    height: 32px;
+    overflow:hidden;
 }
 .dataResponsiveGridShowLeft{
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
@@ -113,7 +115,7 @@
 
 .dataResponsiveGridTableHeaderRight{
     display: flex;
-    height:35px;
+    height:32px;
     background:#f1f1f1;
     font-weight: bold;
     overflow-x: auto;

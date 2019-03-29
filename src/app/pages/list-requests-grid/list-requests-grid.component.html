@@ -42,6 +42,25 @@
         </div>
 
         <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+            Total
+        </div>
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+            Preço Venda / Caixa
+        </div>
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+            Preço Unitário / Caixa
+        </div>
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+            Fornecedor
+        </div>
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+            Preço custo / Caixa
+        </div>
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+           Margem(%)
+        </div>
+
+        <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
          
         </div>
 
@@ -89,6 +108,29 @@
                   {{data}}
             </div>
 
+
+            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                Total
+            </div>
+            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                Preço Venda / Caixa
+            </div>
+            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                Preço Unitário / Caixa
+            </div>
+            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                Fornecedor
+            </div>
+            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                Preço custo / Caixa
+            </div>
+            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                Margem(%)
+            </div>
+
+
+
+
           </div>
       </div>
     </div>
@@ -99,41 +141,41 @@
     <div class="dataBottomItem">
       <div class="dataBottomItemLabel">Total Volumes</div>
       <div class="dataBottomItemContent">
-        4386
+        {{totalVolumes}}
       </div>
     </div>
 
     <div class="dataBottomItem">
         <div class="dataBottomItemLabel">Valor total venda</div>
         <div class="dataBottomItemContent">
-            R$81.868.44
+            {{valorTotalVendas}}
         </div>
       </div>
 
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Valor total venda c/desc</div>
           <div class="dataBottomItemContent">
-              R$81.868.44
+              {{valorTotalVendasComDesconto}}
           </div>
       </div>
 
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Valor total compra</div>
           <div class="dataBottomItemContent">
-              R$81.868.44
+              {{valorTotalCompra}}
           </div>
       </div>
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Resultado</div>
           <div class="dataBottomItemContent dataBottomItemContentHhighlight">
-              R$81.868.44
+             {{resultado}}
           </div>
       </div>
 
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Margem %</div>
           <div class="dataBottomItemContent dataBottomItemContentHhighlight">
-            10%
+            {{margem}}
           </div>
       </div>
   </div>
