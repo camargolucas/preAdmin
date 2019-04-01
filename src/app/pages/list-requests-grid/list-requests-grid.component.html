@@ -1,6 +1,5 @@
-
 <div class="dataResponsiveGridComponent" (window:resize)="onResize($event)">
-
+  
 <div id="dataResponsiveGrid" class="dataResponsiveGrid mat-elevation-z8">
   <div class="dataResponsiveGridHeader">
     <div class="titleBigGrid">
@@ -12,7 +11,6 @@
       <p>08/03/2019</p>
     </div>
   </div>
-
 
 <div class="dataResponsiveGridTableHeaderComponent">
   <div class="dataResponsiveGridTableHeader">
@@ -28,7 +26,6 @@
         <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == 'status'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == 'status'" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
       </div>
-
 
       <div (click)="orderDataArrGrid('nome')" class="headerCell display_flex dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
         Produto
@@ -80,8 +77,6 @@
          
         </div>
 
-
-
     </div>
   </div>
 
@@ -98,9 +93,20 @@
             <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                   {{data.id}}
               </div>
-              <div (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  <div [ngClass]="{'produtoStatusEvidencia': data.status == 1, 'produtoStatusEmFalta':data.status == 2, 'produtoStatusEntreSafra':data.status == 3, 'produtoStatusNeutro':data.status == 4}"></div>
+
+              <div *ngIf="data.status == 1" matTooltip="Evidência" [matTooltipPosition]="position.value" (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  <div class="produtoStatusEvidencia"></div>
               </div>
+              <div *ngIf="data.status == 2" matTooltip="Em Falta" [matTooltipPosition]="position.value" (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  <div class="produtoStatusEmFalta"></div>
+              </div>
+              <div *ngIf="data.status == 3" matTooltip="Entre Safra" [matTooltipPosition]="position.value" (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  <div class="produtoStatusEntreSafra"></div>
+              </div>
+              <div *ngIf="data.status == 4" matTooltip="Neutro" [matTooltipPosition]="position.value" (focus)="highlightRow(i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                  <div class="produtoStatusNeutro"></div>
+              </div>
+
               <div matTooltip="{{data.nome}}" [matTooltipPosition]="position.value" (focus)="highlightRow(i)" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                   {{data.nome}}
               </div>
@@ -119,24 +125,24 @@
       <div class="gridTableDataRightContainer">
           <div *ngFor="let data of dataArrGrid; let i=index" (click)="highlightRow(i)" [ngClass]="{'highlightRow': selectedRow == i}" class="dataResponsiveGridTableData" >
 
-            <div *ngFor="let dataArr of data.lojas; let j=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                  {{dataArr}}
+            <div *ngFor="let dataArr of data.lojas; let j=index" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" > 
+              <input class="inputCell" name="input_{{i}}{{j}}" matInput #valor (change)="setDataCell(valor.value, i, j)" class="cellInputData" type="number" min="0" max="1000000" value="{{data.lojas[j]}}"  tabindex="{{i+1}}">
             </div>
 
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                 {{getTotalItens(i)}}
             </div>
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                Preço Venda / Caixa
+                {{data.precoVenda}}
             </div>
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                Preço Unitário / Caixa
+                {{data.precoUnitario}}
             </div>
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                Fornecedor
+                {{data.fornecedor}}
             </div>
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                Preço custo / Caixa
+                {{data.precoCusto}}
             </div>
             <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                 Margem(%)

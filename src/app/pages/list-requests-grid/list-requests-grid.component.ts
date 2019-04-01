@@ -15,7 +15,7 @@ export class ListRequestsGridComponent implements OnInit {
   screenHeight:number;
   screenWidth:number;
 
-  //Status dos Pprodutos
+  //Status dos Produtos
   //1.Em evidencia
   //2.Em falta
   //3.Entre Safra
@@ -30,17 +30,7 @@ export class ListRequestsGridComponent implements OnInit {
 
 
   //Elementos das Colunas
-
-  dataArrGridColum = [
-    {
-      "loja": '1',
-      "qtd":[1,15,6,87,918,39]
-    },
-    {
-      "loja": '2',
-      "qtd":[199,815,6,87,98,39]
-    }
-  ];
+  dataArrGridColum = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,3,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50];
 
   dataArrGrid = [
       {
@@ -50,7 +40,11 @@ export class ListRequestsGridComponent implements OnInit {
         "tipo":"F",
         "unidmedida":"Unidade",
         "peso":"18,00",
-        "lojas":[5,6]
+        "precoVenda": "10.20",
+        "precoUnitario":"5.00",
+        "precoCusto": "5.20",
+        "fornecedor":"Valinhos",
+        "lojas":[55,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       },{
         "id":2,
         "nome":"B abacate 2",
@@ -58,7 +52,11 @@ export class ListRequestsGridComponent implements OnInit {
         "tipo":"F",
         "unidmedida":"Kilo",
         "peso":"16,00",
-        "lojas":[15,62]
+        "precoVenda": "10.20",
+        "precoUnitario":"5.00",
+        "precoCusto": "5.20",
+        "fornecedor":"Valinhos",
+        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       },{
         "id":3,
         "nome":"C abacate 3",
@@ -66,7 +64,11 @@ export class ListRequestsGridComponent implements OnInit {
         "tipo":"F",
         "unidmedida":"Bandeja",
         "peso":"15,00",
-        "lojas":[53,76]
+        "precoVenda": "10.20",
+        "precoUnitario":"5.00",
+        "precoCusto": "5.20",
+        "fornecedor":"Valinhos",
+        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       },
       {
         "id":4,
@@ -75,7 +77,11 @@ export class ListRequestsGridComponent implements OnInit {
         "tipo":"F",
         "unidmedida":"Unidade",
         "peso":"14,00",
-        "lojas":[85,60]
+        "precoVenda": "10.20",
+        "precoUnitario":"5.00",
+        "precoCusto": "5.20",
+        "fornecedor":"Valinhos",
+        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       },
       {
         "id":5,
@@ -84,10 +90,79 @@ export class ListRequestsGridComponent implements OnInit {
         "tipo":"F",
         "unidmedida":"Unidade",
         "peso":"13,00",
-        "lojas":[75,68]
+        "precoVenda": "10.20",
+        "precoUnitario":"5.00",
+        "precoCusto": "5.20",
+        "fornecedor":"Valinhos",
+        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       }
   ];
 
+  dataArrGridTemp = [
+    {
+      "id":1,
+      "nome":"A abacate 1 A abacate 1 A abacate 1",
+      "status":1,
+      "tipo":"F",
+      "unidmedida":"Unidade",
+      "peso":"18,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[55,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },{
+      "id":2,
+      "nome":"B abacate 2",
+      "status":2,
+      "tipo":"F",
+      "unidmedida":"Kilo",
+      "peso":"16,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },{
+      "id":3,
+      "nome":"C abacate 3",
+      "status":3,
+      "tipo":"F",
+      "unidmedida":"Bandeja",
+      "peso":"15,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "id":4,
+      "nome":"D abacate 4",
+      "status":4,
+      "tipo":"F",
+      "unidmedida":"Unidade",
+      "peso":"14,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "id":5,
+      "nome":"X abacate 5",
+      "status":1,
+      "tipo":"F",
+      "unidmedida":"Unidade",
+      "peso":"13,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    }
+];
   //####################################################
 
   //####################################################
@@ -104,7 +179,9 @@ export class ListRequestsGridComponent implements OnInit {
     //####################################################
   //####################################################
 
-  constructor() { }
+  constructor() {
+
+   }
 
   ngOnInit() {
     this.getHeightWidthOnStart();
@@ -151,9 +228,11 @@ export class ListRequestsGridComponent implements OnInit {
       
       if(this.arrOrder == 'ASC'){
         this.dataArrGrid = this.sortByKeyASC(this.dataArrGrid, attribute);
+        this.dataArrGridTemp = this.sortByKeyASC(this.dataArrGridTemp, attribute);
         this.arrOrder = 'DESC';
       }else{
         this.dataArrGrid = this.sortByKeyDESC(this.dataArrGrid, attribute);
+        this.dataArrGridTemp = this.sortByKeyDESC(this.dataArrGridTemp, attribute);
         this.arrOrder = 'ASC';
       }
 
@@ -182,10 +261,28 @@ export class ListRequestsGridComponent implements OnInit {
   getTotalItens(index:any){
 
     let total = 0;
-    for(let i = 0; i< this.dataArrGrid[index].lojas.length;i++){
-      total = total + this.dataArrGrid[index].lojas[i];
+    
+    for(let i = 0; i< this.dataArrGridTemp[index].lojas.length;i++){
+
+      let d = this.dataArrGridTemp[index].lojas[i];
+
+      total += Number(d);
     }
 
     return total;
   }
+
+
+  setDataCell(data:any, lineIndex:any, columnIndex:any){
+
+    console.log("lineIndex : " + lineIndex);
+    console.log("columnIndex : " + columnIndex);
+    this.dataArrGridTemp[lineIndex].lojas[columnIndex] = data;
+
+ //  dataArrGridTemp = this.dataArrGrid;
+    
+    
+  }
+
+
 }
