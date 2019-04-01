@@ -33,71 +33,70 @@ export class ListRequestsGridComponent implements OnInit {
   dataArrGridColum = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,3,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50];
 
   dataArrGrid = [
-      {
-        "id":1,
-        "nome":"A abacate 1 A abacate 1 A abacate 1",
-        "status":1,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"18,00",
-        "precoVenda": "10.20",
-        "precoUnitario":"5.00",
-        "precoCusto": "5.20",
-        "fornecedor":"Valinhos",
-        "lojas":[55,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-      },{
-        "id":2,
-        "nome":"B abacate 2",
-        "status":2,
-        "tipo":"F",
-        "unidmedida":"Kilo",
-        "peso":"16,00",
-        "precoVenda": "10.20",
-        "precoUnitario":"5.00",
-        "precoCusto": "5.20",
-        "fornecedor":"Valinhos",
-        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-      },{
-        "id":3,
-        "nome":"C abacate 3",
-        "status":3,
-        "tipo":"F",
-        "unidmedida":"Bandeja",
-        "peso":"15,00",
-        "precoVenda": "10.20",
-        "precoUnitario":"5.00",
-        "precoCusto": "5.20",
-        "fornecedor":"Valinhos",
-        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-      },
-      {
-        "id":4,
-        "nome":"D abacate 4",
-        "status":4,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"14,00",
-        "precoVenda": "10.20",
-        "precoUnitario":"5.00",
-        "precoCusto": "5.20",
-        "fornecedor":"Valinhos",
-        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-      },
-      {
-        "id":5,
-        "nome":"X abacate 5",
-        "status":1,
-        "tipo":"F",
-        "unidmedida":"Unidade",
-        "peso":"13,00",
-        "precoVenda": "10.20",
-        "precoUnitario":"5.00",
-        "precoCusto": "5.20",
-        "fornecedor":"Valinhos",
-        "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-      }
-  ];
-
+    {
+      "id":1,
+      "nome":"A abacate 1 A abacate 1 A abacate 1",
+      "status":1,
+      "tipo":"F",
+      "unidmedida":"Unidade",
+      "peso":"18,00",
+      "precoVenda": "10.00",
+      "precoUnitario":"5.00",
+      "precoCusto": "1.00",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },{
+      "id":2,
+      "nome":"B abacate 2",
+      "status":2,
+      "tipo":"F",
+      "unidmedida":"Kilo",
+      "peso":"16,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },{
+      "id":3,
+      "nome":"C abacate 3",
+      "status":3,
+      "tipo":"F",
+      "unidmedida":"Bandeja",
+      "peso":"15,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "id":4,
+      "nome":"D abacate 4",
+      "status":4,
+      "tipo":"F",
+      "unidmedida":"Unidade",
+      "peso":"14,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },
+    {
+      "id":5,
+      "nome":"X abacate 5",
+      "status":1,
+      "tipo":"F",
+      "unidmedida":"Unidade",
+      "peso":"13,00",
+      "precoVenda": "10.20",
+      "precoUnitario":"5.00",
+      "precoCusto": "5.20",
+      "fornecedor":"Valinhos",
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    }
+];
   dataArrGridTemp = [
     {
       "id":1,
@@ -106,11 +105,11 @@ export class ListRequestsGridComponent implements OnInit {
       "tipo":"F",
       "unidmedida":"Unidade",
       "peso":"18,00",
-      "precoVenda": "10.20",
+      "precoVenda": "5.00",
       "precoUnitario":"5.00",
-      "precoCusto": "5.20",
+      "precoCusto": "10.00",
       "fornecedor":"Valinhos",
-      "lojas":[55,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     },{
       "id":2,
       "nome":"B abacate 2",
@@ -164,11 +163,9 @@ export class ListRequestsGridComponent implements OnInit {
     }
 ];
   //####################################################
-
-  //####################################################
     //####################################################
     //Variáveis de controle do Painel
-
+    desconto:any = 0;
     totalVolumes:any = 0;
     valorTotalVendas:any = 0;
     valorTotalVendasComDesconto:any = 0;
@@ -180,7 +177,7 @@ export class ListRequestsGridComponent implements OnInit {
   //####################################################
 
   constructor() {
-
+     this.totalVolumes = this.getTotalVolumes();
    }
 
   ngOnInit() {
@@ -194,7 +191,6 @@ export class ListRequestsGridComponent implements OnInit {
 
     //console.log("dataArrGrid : " + this.dataArrGrid[0].lojas[0].qtd);
   }
-
   onResize(event) {
     //######################################################
     //redimensiona a div central que contém os dados da Grid
@@ -202,42 +198,39 @@ export class ListRequestsGridComponent implements OnInit {
     //this.dataResponsiveGridBodyWidth = this.screenWidth - (510);
     //######################################################
   }
-
   @HostListener('window:resize', ['$event'])
     getHeightWidthOnStart(event?) {
-      this.screenHeight = window.innerHeight;
-      this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
 
-      this.dataResponsiveGridBodyHeight = this.screenHeight - (91+167);
+    this.dataResponsiveGridBodyHeight = this.screenHeight - (91+167);
+  }
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+    onScroll(event) {
+    document.getElementById('dataResponsiveGridShowRight').scrollLeft = event.srcElement.scrollLeft;
+    document.getElementById('gridTableDataLeftContainer').scrollTop = event.srcElement.scrollTop;
+    
+  }
+  highlightRow(row:any){
+    this.selectedRow = row;
+  }
+  orderDataArrGrid(attribute:any){
+
+    console.log("attribute : " + attribute);
+
+    this.setTabarrOrderSelected(attribute);
+    
+    if(this.arrOrder == 'ASC'){
+      this.dataArrGrid = this.sortByKeyASC(this.dataArrGrid, attribute);
+      this.dataArrGridTemp = this.sortByKeyASC(this.dataArrGridTemp, attribute);
+      this.arrOrder = 'DESC';
+    }else{
+      this.dataArrGrid = this.sortByKeyDESC(this.dataArrGrid, attribute);
+      this.dataArrGridTemp = this.sortByKeyDESC(this.dataArrGridTemp, attribute);
+      this.arrOrder = 'ASC';
     }
 
-    @HostListener('window:scroll', ['$event']) // for window scroll events
-      onScroll(event) {
-        document.getElementById('dataResponsiveGridShowRight').scrollLeft = event.srcElement.scrollLeft;
-        document.getElementById('gridTableDataLeftContainer').scrollTop = event.srcElement.scrollTop;
-        
-     }
-    highlightRow(row:any){
-      this.selectedRow = row;
-    }
-    orderDataArrGrid(attribute:any){
-
-      console.log("attribute : " + attribute);
-
-      this.setTabarrOrderSelected(attribute);
-      
-      if(this.arrOrder == 'ASC'){
-        this.dataArrGrid = this.sortByKeyASC(this.dataArrGrid, attribute);
-        this.dataArrGridTemp = this.sortByKeyASC(this.dataArrGridTemp, attribute);
-        this.arrOrder = 'DESC';
-      }else{
-        this.dataArrGrid = this.sortByKeyDESC(this.dataArrGrid, attribute);
-        this.dataArrGridTemp = this.sortByKeyDESC(this.dataArrGridTemp, attribute);
-        this.arrOrder = 'ASC';
-      }
-
-    }
-
+  }
   sortByKeyASC(array, key) {
       return array.sort(function(a, b) {
           var x = a[key]; 
@@ -245,7 +238,6 @@ export class ListRequestsGridComponent implements OnInit {
           return ((x < y) ? -1 : ((x > y) ? 1 : 0));
       });
   }
-
   sortByKeyDESC(array, key) {
     return array.sort(function(a, b) {
         var x = a[key]; 
@@ -256,33 +248,68 @@ export class ListRequestsGridComponent implements OnInit {
   setTabarrOrderSelected(tab:any){
     this.tabarrOrderSelected = tab;
   }
-
-
   getTotalItens(index:any){
+    let total = 0;
+    for(let i = 0; i< this.dataArrGridTemp[index].lojas.length;i++){
+      let d = this.dataArrGridTemp[index].lojas[i];
+      total += Number(d);
+    }
+    return total;
+  }
+  getTotalVolumes(){
 
     let total = 0;
-    
-    for(let i = 0; i< this.dataArrGridTemp[index].lojas.length;i++){
 
-      let d = this.dataArrGridTemp[index].lojas[i];
-
-      total += Number(d);
+    for(let i = 0; i< this.dataArrGridTemp.length; i++){
+      for(let j = 0; j< this.dataArrGridTemp[i].lojas.length;j++){
+        let d = this.dataArrGridTemp[i].lojas[j];
+        total += Number(d);
+      }
     }
 
     return total;
+    
   }
-
-
   setDataCell(data:any, lineIndex:any, columnIndex:any){
-
-    console.log("lineIndex : " + lineIndex);
-    console.log("columnIndex : " + columnIndex);
     this.dataArrGridTemp[lineIndex].lojas[columnIndex] = data;
-
- //  dataArrGridTemp = this.dataArrGrid;
-    
-    
   }
 
+
+
+  getValorTotalVenda(){
+    let totalValor = 0;
+    for(let i = 0; i< this.dataArrGridTemp.length; i++){
+      for(let j = 0; j< this.dataArrGridTemp[i].lojas.length;j++){
+        let valTemp = Number(this.dataArrGridTemp[i].precoVenda) * Number(this.dataArrGridTemp[i].lojas[j]);
+        totalValor += Number(valTemp);
+      }
+    }
+    return totalValor;
+  }
+  getValorTotalVendaComDesconto(){
+    let totalValor = 0;
+    for(let i = 0; i< this.dataArrGridTemp.length; i++){
+      for(let j = 0; j< this.dataArrGridTemp[i].lojas.length;j++){
+        let valTemp = Number(this.dataArrGridTemp[i].precoVenda) * Number(this.dataArrGridTemp[i].lojas[j]);
+        totalValor += Number(valTemp);
+      }
+    }
+    return totalValor - this.desconto;
+  }
+  getValorTotalCompra(){
+    let totalValor = 0;
+    for(let i = 0; i< this.dataArrGridTemp.length; i++){
+      for(let j = 0; j< this.dataArrGridTemp[i].lojas.length;j++){
+        let valTemp = Number(this.dataArrGridTemp[i].precoCusto) * Number(this.dataArrGridTemp[i].lojas[j]);
+        totalValor += Number(valTemp);
+      }
+    }
+    return totalValor;
+  }
+
+  getValorResultadoFinal(){
+    let resultado = this.getValorTotalVendaComDesconto() - this.getValorTotalCompra();
+    return resultado;
+  }
 
 }

@@ -54,22 +54,22 @@
           Loja {{i+1}}.
         </div>
 
-        <div (click)="orderDataArrGrid('total')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('total')" class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Total
         </div>
-        <div (click)="orderDataArrGrid('precoVendaCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoVendaCaixa')" class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Preço Venda / Caixa
         </div>
-        <div (click)="orderDataArrGrid('precoUnitarioCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoUnitarioCaixa')" class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Preço Unitário / Caixa
         </div>
-        <div (click)="orderDataArrGrid('precoFornecedorCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoFornecedorCaixa')" class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Fornecedor
         </div>
-        <div (click)="orderDataArrGrid('precoCustoCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoCustoCaixa')" class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
             Preço custo / Caixa
         </div>
-        <div (click)="orderDataArrGrid('precoMargemCaixa')" class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+        <div (click)="orderDataArrGrid('precoMargemCaixa')" class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
            Margem(%)
         </div>
 
@@ -129,22 +129,22 @@
               <input class="inputCell" name="input_{{i}}{{j}}" matInput #valor (change)="setDataCell(valor.value, i, j)" class="cellInputData" type="number" min="0" max="1000000" value="{{data.lojas[j]}}"  tabindex="{{i+1}}">
             </div>
 
-            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+            <div class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                 {{getTotalItens(i)}}
             </div>
-            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                {{data.precoVenda}}
+            <div class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                {{data.precoVenda | currency:'R$'}}
             </div>
-            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                {{data.precoUnitario}}
+            <div class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                {{data.precoVenda | currency:'R$'}}
             </div>
-            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+            <div class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                 {{data.fornecedor}}
             </div>
-            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
-                {{data.precoCusto}}
+            <div class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+                {{data.precoCusto | currency:'R$'}}
             </div>
-            <div class="dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
+            <div class="text-align-center dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}}" tabindex="{{i+1}}">
                 Margem(%)
             </div>
 
@@ -161,34 +161,34 @@
     <div class="dataBottomItem">
       <div class="dataBottomItemLabel">Total Volumes</div>
       <div class="dataBottomItemContent">
-        {{totalVolumes}}
+        {{getTotalVolumes() | number}}
       </div>
     </div>
 
     <div class="dataBottomItem">
         <div class="dataBottomItemLabel">Valor total venda</div>
         <div class="dataBottomItemContent">
-            {{valorTotalVendas}}
+            {{getValorTotalVenda() | currency:'R$'}}
         </div>
       </div>
 
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Valor total venda c/desc</div>
           <div class="dataBottomItemContent">
-              {{valorTotalVendasComDesconto}}
+              {{getValorTotalVendaComDesconto() | currency:'R$'}}
           </div>
       </div>
 
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Valor total compra</div>
           <div class="dataBottomItemContent">
-              {{valorTotalCompra}}
+              {{getValorTotalCompra() | currency:'R$'}}
           </div>
       </div>
       <div class="dataBottomItem">
           <div class="dataBottomItemLabel">Resultado</div>
-          <div class="dataBottomItemContent dataBottomItemContentHhighlight">
-             {{resultado}}
+          <div class="dataBottomItemContent dataBottomItemContentHhighlight" [ngClass]="{'negativeVal': getValorResultadoFinal() < 0}">
+             {{getValorResultadoFinal() | currency:'R$'}}
           </div>
       </div>
 
