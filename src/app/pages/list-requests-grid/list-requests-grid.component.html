@@ -93,6 +93,7 @@
             <div [ngClass]="{'highlightRow': selectedColum == 'colum_l'+i}" (focus)="highlightRow( i, 'colum_l_0')" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}} colum_l_1" tabindex="{{i+1}}">
                   {{data.id}}
               </div>
+              
 
               <div *ngIf="data.status == 1" matTooltip="Evidência" [matTooltipPosition]="position.value" (focus)="highlightRow(i,i)" class="smallCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderBottom rowArr row_{{i+1}} colum_l_2">
                   <div class="produtoStatusEvidencia"></div>

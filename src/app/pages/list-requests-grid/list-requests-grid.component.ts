@@ -38,7 +38,7 @@ export class ListRequestsGridComponent implements OnInit {
       "prePedidos":[
         {
           "id":1,
-          "nome":"A abacate 1 A abacate 1 A abacate 1",
+          "nome":"A abacate 1",
           "status":1,
           "tipo":"F",
           "unidmedida":"Unidade",
