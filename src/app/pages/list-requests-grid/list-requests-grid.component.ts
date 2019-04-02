@@ -156,126 +156,6 @@ export class ListRequestsGridComponent implements OnInit {
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":11,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":12,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":13,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":14,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":15,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":16,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":17,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":18,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":19,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        },{
-          "id":20,
-          "nome":"X abacate 5",
-          "status":1,
-          "tipo":"F",
-          "unidmedida":"Unidade",
-          "peso":"13.00",
-          "precoVenda": "10.20",
-          "precoUnitario":"5.00",
-          "precoCusto": "5.20",
-          "fornecedor":"Valinhos",
-          "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         }
       ]
     }
@@ -342,9 +222,6 @@ export class ListRequestsGridComponent implements OnInit {
     document.getElementById('gridTableDataLeftContainer').scrollTop = event.srcElement.scrollTop;
   }
   highlightRow(row:any,collum:any){
-
-    console.log("collum : " + collum);
-
     this.selectedRow = row;
     this.selectedColum = collum;
   }

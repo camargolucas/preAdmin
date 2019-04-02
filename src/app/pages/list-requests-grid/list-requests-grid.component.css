@@ -70,7 +70,8 @@
 }
 .dataBottomItemContentHhighlight{
     font-weight: bold;
-    color:rgb(45, 139, 194);
+    background: rgb(45, 139, 194);
+    color:rgb(255, 255, 255);
 }
 .cellBorderTop{
     border-top: 1px solid #CCCCCC;
@@ -247,7 +248,8 @@ height:0px;
     height: 100%;
 }
 .negativeVal{
-    color:rgb(247, 63, 63);
+    background:rgb(247, 63, 63);
+    color:#FFFFFF;
 }
 
 
