@@ -272,4 +272,16 @@ export class StorageService {
   }
   //###########################################
   //###########################################
+  getPrePedidoCache(){
+    return JSON.parse(localStorage.getItem("prePedido"));
+  }
+  insertPrePedidoCache(data: any){
+    try {
+      localStorage.setItem("prePedido", JSON.stringify(data));
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
+    } 
+  }
 }

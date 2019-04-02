@@ -1,5 +1,6 @@
-.dataResponsiveGridComponent{
-
+.leftHeader{
+    background: #2F4050;
+    color: #FFFFFF;
 }
 .dataResponsiveGridBody{
     overflow-y: auto;
@@ -52,8 +53,9 @@
     margin:5px;
     padding:10px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.39);
 }
 
 .dataBottomItemLabel{
@@ -104,6 +106,7 @@
     min-width:100px;
     font-size: 14px;
     height: 32px;
+    font-size: 12px;
     overflow:hidden;
 }
 .dataResponsiveGridShowLeft{
@@ -185,15 +188,17 @@ height:0px;
 
 }
 .cellInputData{
-    border: 0px solid #ffffff;
+    border: 1px solid #e6e5e5;
     outline: none;
     border-radius: 20px;
     padding: 5px;
     text-align: center;
+    font-size: 12px;
 }
 .cellInputData:focus{
     background: #ffffff;
     box-shadow: 1px -4px 5px -3px rgba(0, 0, 0, 0.04), 0 8px 10px 1px rgba(0, 0, 0, 0.03), 0 3px 14px 2px rgba(0,0,0,.12);
+    font-size: 12px;
 }
 .mat-icon-mod{
     height: 10px;
