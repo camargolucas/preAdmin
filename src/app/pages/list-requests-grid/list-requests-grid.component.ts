@@ -32,7 +32,7 @@ export class ListRequestsGridComponent implements OnInit {
 
   dataArrMockUpData = [
     {
-      "id":1,
+      "idGrupoEconomico":1,
       "grupoEconomico":"WallMart",
       "lojas":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,3,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
       "prePedidos":[
@@ -185,17 +185,11 @@ export class ListRequestsGridComponent implements OnInit {
 
 
   ngOnInit() {
-
     let arrStorageCache = this.storageService.getPrePedidoCache();
     let arrStorageCacheTemp = this.storageService.getPrePedidoCache();
-
-    
     this.dataArrGridColum = arrStorageCache[0].lojas;
     this.dataArrGrid = arrStorageCache[0].prePedidos;
     this.dataArrGridTemp = arrStorageCacheTemp[0].prePedidos;
-
-
-
     this.getHeightWidthOnStart();
     this.totalVolumes = 850;
     this.valorTotalVendas = 1500;
@@ -355,6 +349,5 @@ export class ListRequestsGridComponent implements OnInit {
   percentage(partialValue, totalValue) {
     let val = (100 * partialValue) / totalValue;
     return val;
-  } 
-
+  }
 }

@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
   navigatorStorageCompatibility: boolean = true;
   userLogged: boolean = false;
 
+  progressBarActive:boolean = false;
+  buttonLoginActive:boolean = true;
+
   constructor(
     private titleService: Title,
     private loginService: LoginService,
@@ -52,6 +55,8 @@ export class LoginComponent implements OnInit {
 
   //Função de login do usuário
   public loginUser() {
+    this.toogleProgressbar();
+    this.toogleLoginButton();
     //ID unico do dispositivo, provavelmente não será usado neste cliente
     this.UUID = "thiago";
     //"lukao@zica", "12345", "thiago"
@@ -74,17 +79,30 @@ export class LoginComponent implements OnInit {
                 this.navigatorStorageCompatibility = false;
               }
             } else {
+              this.toogleProgressbar();
+              this.toogleLoginButton();
               this.loginSendData = false; //Variavel usada para mostrar ou não o progressbar
               this.errologin = true;
             }
           });
       } else {
+        this.toogleProgressbar();
+        this.toogleLoginButton();
         this.loginSendData = false; //Variavel usada para mostrar ou não o progressbar
         this.emptyPassword = true;
       }
     } else {
+      this.toogleProgressbar();
+      this.toogleLoginButton();
       this.loginSendData = false; //Variavel usada para mostrar ou não o progressbar
       this.emptyEmail = true;
     }
+  }
+
+  public toogleProgressbar(){
+    this.progressBarActive = !this.progressBarActive;
+  }
+  public toogleLoginButton(){
+    this.buttonLoginActive = !this.buttonLoginActive;
   }
 }

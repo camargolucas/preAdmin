@@ -1,0 +1,19 @@
+.bodyBox{
+    background: #2F4050!important;
+}
+.loginBox{
+    margin:0 auto;
+    margin-top: 40px;
+    min-width: 290px;
+    max-width: 350px;
+}
+.loginLogo img{
+    max-width:100%;
+    padding:10px;
+}
+.btnLogin{
+    outline: none;
+}
+.mat-raised-button.mat-primary {
+    background-color: #0796BA;
+}

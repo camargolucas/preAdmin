@@ -40,8 +40,8 @@ import {
   MatSidenavModule,
   MatRippleModule,
   MatRadioModule,
-  MatTooltipModule
-  
+  MatTooltipModule,
+  MatProgressBarModule
 } from "@angular/material";
 import { EconomicGroupComponent } from "./pages/economic-group/economic-group.component";
 import { ClientComponent } from "./pages/client/client.component";
@@ -111,8 +111,8 @@ import { ListRequestsGridComponent } from './pages/list-requests-grid/list-reque
     MatSidenavModule,
     MatRippleModule,
     MatRadioModule,
-    MatTooltipModule
-
+    MatTooltipModule,
+    MatProgressBarModule
   ],
   entryComponents: [
     CreateManagerAccountDialogComponent,

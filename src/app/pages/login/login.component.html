@@ -1,37 +1,38 @@
-<div class="middle-box text-center loginscreen animated fadeInDown">
-    <div>
+<div class="container">
+    <div class="w-50 text-center loginBox">
         <div>
-            <img src="http://thothcompany.com.br/teste/img/logo-thoth-01.png" width="300px">
-        </div>
-        <form >
-            <div class="form-group">
-                <input [formControl]="userEmail" name="userEmail" type="email" class="form-control" placeholder="E-mail" required>
+            <div class="loginLogo">
+                <img src="http://thothcompany.com.br/teste/img/logo-thoth-01.png" width="250px">
             </div>
-            <div *ngIf="(userEmail.dirty || userEmail.touched) && userEmail.invalid && userEmail.errors.required" class="alert alert-danger" role="alert">
+            <form >
+                <div class="form-group">
+                    <input [formControl]="userEmail" name="userEmail" type="email" class="form-control" placeholder="E-mail" required>
+                </div>
+                <div *ngIf="(userEmail.dirty || userEmail.touched) && userEmail.invalid && userEmail.errors.required" class="alert alert-danger" role="alert">
                     Email necessário para fazer login.
-            </div>
-
-            <div class="form-group">
-                <input [formControl]="userSenha" name="userSenha" type="password" class="form-control" placeholder="Senha" required="">
-            </div>
-            <div *ngIf="(userSenha.dirty || userSenha.touched) && userSenha.invalid && userSenha.errors.required" class="alert alert-danger" role="alert">
+                </div>
+                <div class="form-group">
+                    <input [formControl]="userSenha" name="userSenha" type="password" class="form-control" placeholder="Senha" required="">
+                </div>
+                <div *ngIf="(userSenha.dirty || userSenha.touched) && userSenha.invalid && userSenha.errors.required" class="alert alert-danger" role="alert">
                     Senha necessária para fazer login.
-            </div>
-            <button (click)="loginUser()" type="submit" class="btn btn-primary block full-width m-b">Login</button>
-        </form>
-    </div>
-
-    <div *ngIf="loginSendData"><img src="../../../assets/Rolling-1s-200px.svg" width="60px"></div>
-    <div *ngIf="emptyPassword" class="alert alert-danger" role="alert">
+                </div>
+                <button *ngIf="buttonLoginActive" (click)="loginUser()" type="submit" mat-raised-button color="primary" class="btnLogin">Entrar</button>
+                <mat-progress-bar mode="indeterminate" *ngIf="progressBarActive"></mat-progress-bar>
+            </form>
+        </div>
+        
+        <div *ngIf="emptyPassword" class="alert alert-danger" role="alert">
             Você precisa informar sua senha para fazer login!
-    </div>
-    <div *ngIf="emptyEmail" class="alert alert-danger" role="alert">
+        </div>
+        <div *ngIf="emptyEmail" class="alert alert-danger" role="alert">
             Você precisa informar seu e-mail para faezer login!
-    </div>
-    <div *ngIf="errologin" class="alert alert-danger" role="alert">
-        Erro ao fazer login, verifique seu e-mail e senha!
-    </div>
-    <div *ngIf="!navigatorStorageCompatibility" class="alert alert-danger" role="alert">
+        </div>
+        <div *ngIf="errologin" class="alert alert-danger" role="alert">
+            Erro ao fazer login, verifique seu e-mail e senha!
+        </div>
+        <div *ngIf="!navigatorStorageCompatibility" class="alert alert-danger" role="alert">
             Erro ao fazer login, verifique a compatibilidade do seu navegador!
         </div>
+    </div>
 </div>
