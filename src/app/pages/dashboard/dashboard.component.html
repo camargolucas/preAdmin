@@ -5,45 +5,45 @@
 </div>
 
 <div class="card-list">
-        <mat-card class="dashboard-card mat-elevation-z8">
-            <mat-card-header>
-                <mat-card-title><mat-icon class="mr-1">group_work</mat-icon><span>Grupo econômico</span></mat-card-title>
-                <mat-card-subtitle><strong>{{totalGrupoEconomico}}</strong> Grupos</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-actions>
-                <button routerLink="/home/economic-group" mat-button>Listar</button>
-            </mat-card-actions>
-        </mat-card>
+    <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card-header>
+            <mat-card-title><mat-icon class="mr-1">group_work</mat-icon><span>Grupo econômico</span></mat-card-title>
+            <mat-card-subtitle><strong>{{totalGrupoEconomico}}</strong> Grupos</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button routerLink="/home/economic-group" mat-button>Listar</button>
+        </mat-card-actions>
+    </mat-card>
 
-            <mat-card class="dashboard-card mat-elevation-z8">
-                    <mat-card-header>
-                        <mat-card-title><mat-icon class="mr-1">storage</mat-icon>Estoques declarado</mat-card-title>
-                        <mat-card-subtitle><strong>0</strong> Estoques</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-actions>
-                        <button routerLink="/home/economic-group" mat-button>Listar</button>
-                    </mat-card-actions>
-                </mat-card>
+    <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card-header>
+            <mat-card-title><mat-icon class="mr-1">storage</mat-icon>Estoques declarado</mat-card-title>
+            <mat-card-subtitle><strong>0</strong> Estoques</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button routerLink="/home/economic-group" mat-button>Listar</button>
+        </mat-card-actions>
+    </mat-card>
 
-                <mat-card class="dashboard-card mat-elevation-z8">
-                        <mat-card-header>
-                            <mat-card-title><mat-icon class="mr-1">list</mat-icon>Pedido pendente</mat-card-title>
-                            <mat-card-subtitle><strong>0</strong> Pedidos</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-actions>
-                            <button routerLink="/home/economic-group" mat-button>Listar</button>
-                        </mat-card-actions>
-                    </mat-card>
+    <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card-header>
+            <mat-card-title><mat-icon class="mr-1">list</mat-icon>Pedido pendente</mat-card-title>
+            <mat-card-subtitle><strong>0</strong> Pedidos</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button routerLink="/home/economic-group" mat-button>Listar</button>
+        </mat-card-actions>
+    </mat-card>
 
 
-                    <mat-card class="dashboard-card mat-elevation-z8">
-                            <mat-card-header>
-                                <mat-card-title><mat-icon class="mr-1">supervisor_account</mat-icon>Usuários</mat-card-title>
-                                <mat-card-subtitle><strong>{{totalUser}}</strong> Usuários</mat-card-subtitle>
-                            </mat-card-header>
-                            <mat-card-actions>
-                                <button mat-button (click)="createNewUserAccount()">Cadastrar</button>
-                                <button routerLink="/home/users" mat-button>Listar</button>
-                            </mat-card-actions>
-                        </mat-card>
+    <mat-card class="dashboard-card mat-elevation-z8">
+        <mat-card-header>
+            <mat-card-title><mat-icon class="mr-1">supervisor_account</mat-icon>Usuários</mat-card-title>
+            <mat-card-subtitle><strong>{{totalUser}}</strong> Usuários</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+            <button mat-button (click)="createNewUserAccount()">Cadastrar</button>
+            <button routerLink="/home/users" mat-button>Listar</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

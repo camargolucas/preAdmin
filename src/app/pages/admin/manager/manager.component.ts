@@ -103,12 +103,13 @@ export class ManagerComponent implements OnInit {
     }
 
   }
+  //Bloqueio do usuário
   blockUser(user: Usuario){
+    //Chama função para abrir tela de diálogo
     this.openDialogBlockUser(user);
   }
+  //Função que abre a tela de diálogo para realizar o bloqueio
   openDialogBlockUser(user: Usuario):void{
-   
-    
     //Necessário para atribur valor ao array de filtros
     const dialogRef = this.dialog.open(BlockUserAccountDialogComponent, {
       width: "400px",
@@ -122,22 +123,22 @@ export class ManagerComponent implements OnInit {
         idCargo: 2
       }
     });
-
+    //Depois do diálogo ser fechado é chamado a função abaixo
     dialogRef.afterClosed().subscribe(result => {
-
       this.arrUserAll = this.storageService.getManagerList();
       this.arrUser = this.arrUserAll;
-      
       this.activePageDataChunk = this.arrUserAll.slice(0,this.pageSize);
-
       this.filterData();
       this.changePage();
 
     });
   }
+  //Chamada a tela de diálogo de edição de dados do usuário
   editUser(user: Usuario) {
+    //Chama a função da tela de diálogo
     this.editUserOpenDialog(user);
   }
+  //Função de edição de dados do 
   editUserOpenDialog(user: Usuario): void {
     //Necessário para atribur valor ao array de filtros
     const dialogRef = this.dialog.open(EditUserAccountDialogComponent, {
@@ -152,18 +153,13 @@ export class ManagerComponent implements OnInit {
         idCargo: 2
       }
     });
-
+    //Depois do diálogo ser fechado é chamado a função abaixo
     dialogRef.afterClosed().subscribe(result => {
-
       this.arrUserAll = this.storageService.getManagerList();
-      this.arrUser = this.arrUserAll;
-
-      console.log(this.arrUserAll);
-      
+      this.arrUser = this.arrUserAll; 
       this.activePageDataChunk = this.arrUserAll.slice(0,this.pageSize);
       this.filterData();
       this.changePage();
-
     });
   }
 }
