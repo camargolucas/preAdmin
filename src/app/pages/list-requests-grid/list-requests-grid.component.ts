@@ -30,7 +30,7 @@ export class ListRequestsGridComponent implements OnInit {
   //Define a ordem padrão para o array de itens
   arrOrder = "DESC";
   //Define a tab selecionada no momento da ordenação
-  tabarrOrderSelected = "";
+  tabarrOrderSelected:any = "";
 
   dataArrMockUpData = [
     {
@@ -49,6 +49,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "1.00",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":2,
@@ -61,6 +62,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":3,
@@ -73,6 +75,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":4,
@@ -85,6 +88,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":5,
@@ -97,6 +101,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":6,
@@ -109,6 +114,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":7,
@@ -121,6 +127,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":8,
@@ -133,6 +140,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":9,
@@ -145,6 +153,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":10,
@@ -157,6 +166,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":11,
@@ -169,6 +179,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":12,
@@ -181,6 +192,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":13,
@@ -193,6 +205,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":14,
@@ -205,6 +218,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":15,
@@ -217,6 +231,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":16,
@@ -229,6 +244,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":17,
@@ -241,6 +257,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":18,
@@ -253,6 +270,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":19,
@@ -265,6 +283,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":20,
@@ -277,6 +296,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":21,
@@ -289,6 +309,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":22,
@@ -301,6 +322,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":23,
@@ -313,6 +335,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":24,
@@ -325,6 +348,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":25,
@@ -337,6 +361,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":26,
@@ -349,6 +374,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":27,
@@ -361,6 +387,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":28,
@@ -373,6 +400,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":29,
@@ -385,6 +413,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         },{
           "id":30,
@@ -397,6 +426,7 @@ export class ListRequestsGridComponent implements OnInit {
           "precoUnitario":"5.00",
           "precoCusto": "5.20",
           "fornecedor":"Valinhos",
+          "indexColuna":0,
           "lojas":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         }
       ]
@@ -468,16 +498,48 @@ export class ListRequestsGridComponent implements OnInit {
     this.selectedColum = collum;
   }
   //Chama as funções de ordenação para o array enviado por parâmetro
-  orderDataArrGrid(attribute:any){
-    this.setTabarrOrderSelected(attribute);
-    if(this.arrOrder == 'ASC'){
-      this.dataArrGrid = this.sortByKeyASC(this.dataArrGrid, attribute);
-      this.dataArrGridTemp = this.sortByKeyASC(this.dataArrGridTemp, attribute);
-      this.arrOrder = 'DESC';
+  orderDataArrGrid(attribute:any, collum?:string){
+
+    if(collum == "c"){
+      for(let i = 0; i < this.dataArrGrid.length; i++){
+        this.dataArrGridTemp[i].indexColuna = 0;
+        this.dataArrGrid[i].indexColuna = 0;
+      }
+      //Ordena a coluna da tabela
+      for(let i = 0; i < this.dataArrGrid.length; i++){
+        if(Number(this.dataArrGridTemp[i].lojas[attribute]) > Number(this.dataArrGridTemp[i].indexColuna)){
+          this.dataArrGrid[i].indexColuna = this.dataArrGridTemp[i].lojas[attribute];
+          this.dataArrGridTemp[i].indexColuna = this.dataArrGridTemp[i].lojas[attribute];
+        }
+
+      }
+
+      this.setTabarrOrderSelected(attribute);
+
+      if(this.arrOrder == 'ASC'){
+        this.dataArrGrid = this.sortByKeyASC(this.dataArrGrid, "indexColuna");
+        this.dataArrGridTemp = this.sortByKeyASC(this.dataArrGridTemp, "indexColuna");
+        this.arrOrder = 'DESC';
+      }else{
+        this.dataArrGrid = this.sortByKeyDESC(this.dataArrGrid, "indexColuna");
+        this.dataArrGridTemp = this.sortByKeyDESC(this.dataArrGridTemp, "indexColuna");
+        this.arrOrder = 'ASC';
+      }
+
     }else{
-      this.dataArrGrid = this.sortByKeyDESC(this.dataArrGrid, attribute);
-      this.dataArrGridTemp = this.sortByKeyDESC(this.dataArrGridTemp, attribute);
-      this.arrOrder = 'ASC';
+
+      this.setTabarrOrderSelected(attribute);
+
+      if(this.arrOrder == 'ASC'){
+        this.dataArrGrid = this.sortByKeyASC(this.dataArrGrid, attribute);
+        this.dataArrGridTemp = this.sortByKeyASC(this.dataArrGridTemp, attribute);
+        this.arrOrder = 'DESC';
+      }else{
+        this.dataArrGrid = this.sortByKeyDESC(this.dataArrGrid, attribute);
+        this.dataArrGridTemp = this.sortByKeyDESC(this.dataArrGridTemp, attribute);
+        this.arrOrder = 'ASC';
+      }
+
     }
   }
   //Organiza o array em ordem crescente baseao na chave
@@ -537,6 +599,7 @@ export class ListRequestsGridComponent implements OnInit {
   //??????????????????????????????????????
   setDataCell(data:any, lineIndex:any, columnIndex:any){
     this.dataArrGridTemp[lineIndex].lojas[columnIndex] = data;
+
   }
   //Obtém o valor total da venda
   getValorTotalVenda(){

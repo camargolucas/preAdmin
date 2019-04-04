@@ -251,7 +251,12 @@ height:0px;
     background:rgb(247, 63, 63);
     color:#FFFFFF;
 }
-
+.headerRighttCell:hover{
+    cursor:pointer;
+}
+.headerRighttCell{
+    display: flex;
+}
 
 @media (max-width: 645px) {
     .dataResponsiveGridBottom{
