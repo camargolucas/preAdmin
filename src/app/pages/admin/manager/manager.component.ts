@@ -40,9 +40,7 @@ export class ManagerComponent implements OnInit {
   pageEvent: PageEvent;
   activePageDataChunk = []
   displayedColumns: string[] = ['NOME', 'EMAIL', 'APELIDO', 'LOJA', 'ACTION'];
- 
   public user: Usuario;
-
   public shouldShow = false;
 
   constructor(
@@ -53,7 +51,6 @@ export class ManagerComponent implements OnInit {
   ) { 
     this.user = new Usuario();
   }
-
   ngOnInit() {
     //primeiro buscamos dados no cache local para pré exibir os dados
     this.arrUser = this.storageService.getManagerList();
@@ -77,8 +74,7 @@ export class ManagerComponent implements OnInit {
       }
     });
   }
-
-
+  //Filtra os dados do array, trazendo o resultado da busca
   filterData(){
     this.arrUser = this.arrUserAll.filter(data => {
       return data.apelidoUsuario.toLowerCase().startsWith(this.searchName.toLowerCase());
@@ -87,7 +83,6 @@ export class ManagerComponent implements OnInit {
     this.totalItensBusca = this.arrUser.length;
     this.activePageDataChunk = this.arrUser.slice(0,this.pageSize);
   }
-
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
   }
@@ -143,8 +138,6 @@ export class ManagerComponent implements OnInit {
   editUser(user: Usuario) {
     this.editUserOpenDialog(user);
   }
-
-
   editUserOpenDialog(user: Usuario): void {
     //Necessário para atribur valor ao array de filtros
     const dialogRef = this.dialog.open(EditUserAccountDialogComponent, {
@@ -173,9 +166,4 @@ export class ManagerComponent implements OnInit {
 
     });
   }
-
-
-
-
-
 }

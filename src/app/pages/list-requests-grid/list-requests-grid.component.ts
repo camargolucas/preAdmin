@@ -165,7 +165,7 @@ export class ListRequestsGridComponent implements OnInit {
   dataArrGrid:any = [];
   dataArrGridTemp:any = [];
   //####################################################
-    //####################################################
+    //##################################################
     //Variáveis de controle do Painel
     desconto:any = 0;
     totalVolumes:any = 0;
@@ -173,7 +173,7 @@ export class ListRequestsGridComponent implements OnInit {
     valorTotalVendasComDesconto:any = 0;
     valorTotalCompra:any = 0;
     resultado:any = 0;
-    //####################################################
+    //##################################################
   //####################################################
 
   constructor(
@@ -183,7 +183,6 @@ export class ListRequestsGridComponent implements OnInit {
      this.storageService.insertPrePedidoCache(this.dataArrMockUpData);
    }
 
-
   ngOnInit() {
     let arrStorageCache = this.storageService.getPrePedidoCache();
     let arrStorageCacheTemp = this.storageService.getPrePedidoCache();
@@ -191,11 +190,11 @@ export class ListRequestsGridComponent implements OnInit {
     this.dataArrGrid = arrStorageCache[0].prePedidos;
     this.dataArrGridTemp = arrStorageCacheTemp[0].prePedidos;
     this.getHeightWidthOnStart();
-    this.totalVolumes = 850;
-    this.valorTotalVendas = 1500;
-    this.valorTotalVendasComDesconto = 2800;
-    this.valorTotalCompra = 3.500;
-    this.resultado = 4000;
+    this.totalVolumes = 0;
+    this.valorTotalVendas = 0;
+    this.valorTotalVendasComDesconto = 0;
+    this.valorTotalCompra = 0;
+    this.resultado = 0;
   }
   onResize(event) {
     //######################################################
