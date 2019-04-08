@@ -12,7 +12,11 @@ export class ClientService extends ApiDataService{
    }
 
   getClientList(){
-    return this.http.get(this.API_URL + "admin/client/getAll");
+    return this.http.get(this.API_URL + "admin/client/getAll/" + encodeURIComponent(this.getToken()));
+  }
+  public getToken(){
+    let data = JSON.parse(localStorage.getItem("dataUser"));
+    return data.userData[0].token;
   }
 
 }

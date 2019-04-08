@@ -18,7 +18,7 @@ export class UserService extends ApiDataService {
 
   getUsers() {
     return new Promise((resolve, reject) => {
-      this.http.get(this.API_URL + "users/getAllUsers").subscribe(
+      this.http.get(this.API_URL + "users/getAllUsers/" + encodeURIComponent(this.getToken())).subscribe(
         result => {
           resolve(result);
         },
@@ -28,6 +28,7 @@ export class UserService extends ApiDataService {
       );
     });
   }
+  
   updateUser(user: Usuario) {
     let userData = JSON.stringify(user);
     return new Promise((resolve, reject) => {
@@ -36,7 +37,7 @@ export class UserService extends ApiDataService {
           this.API_URL +
             "users/updateUser/" +
             encodeURIComponent(userData) +
-            "",
+            "/"+ encodeURIComponent(this.getToken()),
           this.requestOptions
         )
         .subscribe(
@@ -59,7 +60,7 @@ export class UserService extends ApiDataService {
           this.API_URL +
             "admin/user/create/manager/" +
             encodeURIComponent(userData) +
-            "",
+            "/" + encodeURIComponent(this.getToken()),
           this.requestOptions
         ).subscribe(
           res => {
@@ -85,7 +86,7 @@ export class UserService extends ApiDataService {
           this.API_URL +
             "admin/user/create/" +
             encodeURIComponent(userData) +
-            "",
+            "/" + encodeURIComponent(this.getToken()),
           this.requestOptions
         )
         .subscribe(
@@ -124,7 +125,7 @@ export class UserService extends ApiDataService {
           this.API_URL +
             "admin/user/block/" +
             encodeURIComponent(userData) +
-            "",
+            "/" + encodeURIComponent(this.getToken()),
           this.requestOptions
         )
         .subscribe(
@@ -139,7 +140,7 @@ export class UserService extends ApiDataService {
   }
   getManagers(){
       return new Promise((resolve, reject) => {
-        this.http.get(this.API_URL + "admin/manager/getAll").subscribe(
+        this.http.get(this.API_URL + "admin/manager/getAll/" + encodeURIComponent(this.getToken())).subscribe(
           result => {
             resolve(result);
           },
@@ -148,5 +149,9 @@ export class UserService extends ApiDataService {
           }
         );
       });
+  }
+  public getToken(){
+    let data = JSON.parse(localStorage.getItem("dataUser"));
+    return data.userData[0].token;
   }
 }

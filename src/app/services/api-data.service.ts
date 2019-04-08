@@ -17,10 +17,13 @@ export class ApiDataService {
 
     // ## Configuração do Header da API
     // ## Padrão de transição de dados
+
+  
     this.headers = new Headers();
     this.headers.append("Accept", "application/json");
     this.headers.append("Content-Type", "application/json");
     this.headers.append("Access-Control-Allow-Origin", "*");
+    
 
     this.requestOptions = new RequestOptions({ headers: this.headers });
   }

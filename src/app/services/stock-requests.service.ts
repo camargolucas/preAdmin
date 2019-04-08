@@ -16,7 +16,7 @@ export class StockRequestsService extends ApiDataService {
    }
 
   getStock() {
-    return this.http.get(this.API_URL + "products/getAllEstoque");
+    return this.http.get(this.API_URL + "products/getAllEstoque/" + encodeURIComponent(this.getToken()));
   }
 
 
@@ -25,6 +25,9 @@ export class StockRequestsService extends ApiDataService {
 
 
 
-
+  public getToken(){
+    let data = JSON.parse(localStorage.getItem("dataUser"));
+    return data.userData[0].token;
+  }
 
 }

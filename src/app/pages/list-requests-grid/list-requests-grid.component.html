@@ -62,8 +62,8 @@
     <div class="dataResponsiveGridTableHeaderRight">
       <div class="dataResponsiveGridTableHeaderRightBody" id="dataResponsiveGridShowRight">
           <!--##########################################-->
-          <div (click)="orderDataArrGrid(i, 'c')" *ngFor="let data of dataArrGridColum; let i=index" class="headerRighttCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
-              Loja {{i+1}}.
+          <div [matTooltipPosition]="tooltipAbove.value" matTooltip="Funcionário : ç{{data.nomeUser}}" (click)="orderDataArrGrid(i, 'c')" *ngFor="let data of dataArrGridColum; let i=index" class="headerRighttCell dataResponsiveGridTableHeaderCell cellBorderLeft cellBorderTop cellBorderBottom">
+              {{data.nomeLoja}}
               <mat-icon *ngIf="arrOrder == 'ASC' && tabarrOrderSelected == i" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_up</mat-icon>
               <mat-icon *ngIf="arrOrder == 'DESC' && tabarrOrderSelected == i" aria-hidden="false" aria-label="Example home icon" class="mat-icon-mod">keyboard_arrow_down</mat-icon>
           </div>
